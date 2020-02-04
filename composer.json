@@ -1,0 +1,19 @@
+{
+    "name": "proyecto/MF0492_3",
+    "description": "PROGRAMACIÓN WEB EN EL ENTORNO SERVIDOR",
+    "license": "public",
+    "authors": [
+        {
+            "name": "",
+            "email": ""
+        }
+    ],
+
+    "require": {
+
+    },
+
+    "autoload": {
+        
+    }
+}
