@@ -64,8 +64,8 @@ insert into alquileres values
 
 
 create table facturas(
-id_fact int primary key auto_increment,       
-fecha_fact datetime default current_timestamp,     						
+id_fact int primary key auto_increment,
+fecha_fact datetime default current_timestamp,
 usuario varchar(9),
 constraint fk3 foreign key (usuario)
 references usuarios(dni)
@@ -88,6 +88,37 @@ insert into estaciones values
 (4,"Maresme",10);
 
 
+-- CONSULTAS
+
+-- #001 Obtener todos los usuarios.
+		select * from usuarios;
+
+-- #002 Obtener todos los usuarios.
+		select * from bicicletas;
+
+-- #003 Obtener todos los alquileres.
+		select * from alquileres;
+
+-- #003 Obtener todos los alquileres.
+		select * from facturas;
+
+-- #004
+
+-- #005
+
+-- #006
+
+-- #007
+
+-- #008
+
+-- #009
+
+-- #010
+
+-- #011
+
+-- #015
 
 
 
