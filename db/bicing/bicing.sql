@@ -5,13 +5,7 @@ use bicing;
 
 create table tarifas(
 id_trf int primary key,
-nombre_trf varchar(10),
-unid_1 varchar(25),
-precio_1 float,
-unid_2 varchar(25),
-precio_2 float,
-unid_3 varchar(25),
-precio_3 float
+tarifa float
 );
 
 create table usuarios(
