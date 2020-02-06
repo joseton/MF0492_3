@@ -56,6 +56,11 @@ id_alq int primary key,
 fecha_ini datetime,
 fecha_fin datetime,
 bicicleta int,
+usuario varchar(9),
+constraint fk6 foreign key (usuario)
+references usuarios(dni)
+on delete restrict on update cascade,
+
 
 
 constraint fk3 foreign key (bicicleta)
