@@ -1,4 +1,5 @@
 -- TODO Challenge 1: Añadir el código SQL que se indica en la descripción del Challenge 1
+
 drop schema if exists bicing;
 create schema bicing;
 use bicing;
@@ -63,10 +64,10 @@ insert into alquileres values
 
 
 create table facturas(
-id_fact int primary key auto_increment,
-fecha_fact datetime default current_timestamp,
+id_fact int primary key auto_increment,       
+fecha_fact datetime default current_timestamp,     						
 usuario varchar(9),
-constraint fk2 foreign key (usuario)
+constraint fk3 foreign key (usuario)
 references usuarios(dni)
 on delete restrict on update cascade
 );
@@ -85,6 +86,8 @@ insert into estacioness values
 (2,Carmelo,10),
 (3,Example,10),
 (4,Maresme,10);
+
+
 
 
 
