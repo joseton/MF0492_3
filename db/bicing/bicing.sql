@@ -81,14 +81,11 @@ id_est int primary key,
 barrio varchar(15),
 capacidad int
 );
-insert into estacioness values
-(1,Gracia,10),
-(2,Carmelo,10),
-(3,Example,10),
-(4,Maresme,10);
-
-
-
+insert into estaciones values
+(1,"Gracia",10),
+(2,"Carmelo",10),
+(3,"Example",10),
+(4,"Maresme",10);
 
 
 
