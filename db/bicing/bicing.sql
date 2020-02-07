@@ -74,11 +74,7 @@ constraint fk2 foreign key (bicicleta)
 references bicicletas(id_bici)
 on delete restrict on update cascade
 );
-set @f_alta := (select fecha_alta from alquileres where usuario = "53118274P");
-set @f_modif := (select fecha_modif from alquileres where usuario = "53118274P");
-select @f_alta;
-select @f_modif;
-SELECT TIMESTAMPDIFF(MINUTE, @f_alta, @f_modif) AS minutos_transcurridos;
+
 
 insert into alquileres values (null,"2020-02-05 19:19:54","2020-02-05 19:40:44",1,"53118274P");
 insert into alquileres values (null,"2020-02-05 10:20:54","2020-02-05 10:30:54",2,"93318174B");
@@ -140,8 +136,12 @@ insert into facturas values
 		select * from estaciones order by capacidad  desc;
 -- #012 Sacar el promedio de bicis en todas las estaciones.
 		select avg(capacidad) from estaciones; -- not working
--- #013
-
+-- #013 Calcular el tiempo consumido de un usuario.
+		set @f_alta := (select fecha_alta from alquileres where usuario = "53118274P");
+		set @f_modif := (select fecha_modif from alquileres where usuario = "53118274P");
+		select @f_alta;
+		select @f_modif;
+		SELECT TIMESTAMPDIFF(MINUTE, @f_alta, @f_modif) AS minutos_transcurridos;
 -- #014
 
 -- #015
