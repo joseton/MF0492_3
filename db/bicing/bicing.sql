@@ -95,13 +95,19 @@ group by estacion
 having estropeadas > 2;
 
 -- 3. listado de estaciones y número de bicicletas en cada estación
-select estacion, count(*) from bicicletas group by estacion;
+select estacion, count(*)
+from bicicletas
+group by estacion;
 
 -- 4. número de bicis eléctricas por estación
-select estacion, count(*) from bicicletas where electrica = true group by estacion;
+select estacion, count(*)
+from bicicletas
+where electrica = true
+group by estacion;
 
--- 5. usuario, cuando ha cogido la bici y tiempo de uso
-select u.*, inicio_uso, AddTime(inicio_uso, SEC_TO_TIME(tiempo_uso*60)) as limite_uso from usuarios u, alquiler;
+-- 5. usuario, cuando ha cogido la bici y hora límite de uso
+select u.*, inicio_uso, AddTime(inicio_uso, SEC_TO_TIME(tiempo_uso*60)) as limite_uso
+from usuarios u, alquiler;
 
 -- 6. listado de bicicletas y si están estropeadas
 select b.*, m.defectuosa
@@ -109,7 +115,9 @@ from bicicletas b join mantenimiento m
 on b.id_bicicleta = m.bicicleta;
 
 -- 7. impago
-update usuarios set pagado = false where id_usuario = 1;
+update usuarios
+set pagado = false
+where id_usuario = 1;
 select * from usuarios where pagado = false;
 
 -- 8. estaciones ordenadas por número de bicicletas descendente
@@ -119,11 +127,12 @@ group by estacion
 order by num_bicis desc, estacion;
 
 -- 9. mover todas las bicis eléctricas a las estaciones 30x, y las normales a las 6x
+set sql_safe_updates = 0;
 update bicicletas
-set estacion = estacion + 240
+set estacion = concat("30", substring(estacion, 2, 1))
 where estacion between 61 and 69 and electrica = true;
 update bicicletas
-set estacion = estacion - 240
+set estacion = concat("6", substring(estacion, 3, 1))
 where estacion between 301 and 309 and electrica = false;
 select * from bicicletas;
 
@@ -146,20 +155,24 @@ from usuarios u join alquiler a
 on u.id_usuario = a.usuario
 group by u.id_usuario;
 
--- 13. El usuario 1 ahora tiene 45 minutos de uso
-update usuarios set tiempo_uso = 45 where id_usuario = 1;
+-- 13. El usuario 1 ahora tiene 45 minutos de uso (revisamos respecto la consulta 11)
+update usuarios
+set tiempo_uso = 45
+where id_usuario = 1;
 select u.nombre, u.apellidos, timestampdiff(minute, a.inicio_uso, a.fin_uso) - u.tiempo_uso as minutos
 from usuarios u join alquiler a
 on u.id_usuario = a.usuario
 having minutos > 0;
 
 -- 14. Número de estaciones que tiene cada distrito (dde = d: distrito, e: estacion)
-select concat("080", LPAD(substring(estacion, 1, length(estacion) - 1), 2, "0")) as distrito,
-count(distinct(lpad(estacion,3,"0"))) as num_estaciones
+select concat("080", substring(estacion, 1, length(estacion) - 1)) as distrito,
+count(distinct(estacion)) as num_estaciones
 from bicicletas
 group by distrito;
+
 -- 15. Número de bicicletas estropeadas por tipología
-select count(*)
-from mantenimiento
+select electrica, count(*)
+from mantenimiento m join bicicletas b
+on m.bicicleta = b.id_bicicleta
 group by defectuosa;
 -- Final TODO Challenge 1
