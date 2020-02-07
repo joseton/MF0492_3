@@ -170,7 +170,7 @@ select @gastado as Tonio_gastado_bicing;
 -- 13 Que usuario tiene menos dinero.
 select nombre, min(saldo) from usuario;
 
--- 14 Cuanto se ha gastado "Jose Luis" en su último viaje en bici
+-- 14 Cuanto tiempo alquiló  "Jose Luis" la bici en su último viaje en bici
 set @dni := (select dni from usuario where nombre = "Jose Luis");
 set @ultimo_viaje := (select max(id_alquiler) from registro_alquiler where dni = @dni);
 set @f_alta := (select fecha_recogida from registro_alquiler where dni = @dni and id_alquiler = @ultimo_viaje);
@@ -180,6 +180,4 @@ select @tiempo as ultimoviaje_JoseLuis_MIN;
 
 -- 15 Cual es la última bici alquilada?
 select b.cod_bici as Última_bici_alquilada, max(r.id_alquiler) as Id_Alquiler from bicicleta b inner join registro_alquiler r on r.cod_bici = b.cod_bici;
-
-
 -- Final TODO Challenge 1
