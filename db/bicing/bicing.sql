@@ -201,4 +201,38 @@ insert into salida_bici values
 -- ejemplo bici averiada
 update bicicletas set averiado = 1 where id_bici = 10;
 -- Final TODO Challenge 1
--- 
+-- use bicing;
+-- 1
+select * from bicicletas;
+-- 2 buscar por bici averiada
+select * from bicicletas where averiado = 1;
+-- 3 bicis en perfecto estado
+select * from bicicletas where averiado = 0;
+-- 4
+select * from puntos ;
+-- 5
+select * from puntos where barrio="Gracia";
+-- 6
+select bici_actual from puntos where id_punto ="2";
+-- 7 cuantas bici esta en el taller
+select bici_actual from puntos where taller = 0;
+-- 8 bicis sin recoger
+select bici_actual from puntos where taller = 1;
+-- 9 los nombres de los usuarios qui contrataron el servicio
+select U.nombre , U.apellido from usuario U join contratos C on U.dni=C.id_usuario;
+-- 10
+set @f_alta := (select fecha_cont from contratos where id_usuario = "000000000");
+set @f_actual := (select now());
+select timestampdiff(DAY,@f_alta,@f_actual)
+set @f_resto := year()-(@f_actual-@f_alta) AS dias_transcurridos;
+select @f_resto;
+-- Todos los datos de quiene hayan sacado bicis de los puntos bicing
+select * from salida_bici;
+-- Cuántas bicicletas han salido del punto bicing 2?
+select count(*) from salida_bici where id_punto = 2;
+-- Nombre del usuario ha utilizado la bicicleta # 7
+select U.nombre, U.apellido from usuario U join salida_bici S on S.id_salida = U.dni where id_bici = 7;
+-- Todos los datos de quienes hayan ingresado bicis después de sacarlas de otros puntos
+select * from entrada_bici;
+-- Bicicletas que hayan salido de un punto y aún no hayan sido devueltas
+-- select S.id_bici from salida_bici S join entrada_bici E on
