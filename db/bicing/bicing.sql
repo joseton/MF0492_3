@@ -96,8 +96,8 @@ insert into alquileres values (null,"2020-02-05 19:00:54","2020-02-05 19:40:44",
 
 
 create table facturas(
-id_fact int primary key auto_increment,       
-fecha_fact datetime default current_timestamp,     						
+id_fact int primary key auto_increment,
+fecha_fact datetime default current_timestamp,
 usuario varchar(9),
 constraint fk3 foreign key (usuario)
 references usuarios(dni)
@@ -111,16 +111,16 @@ insert into facturas values
 
 
 
--- CONSULTAS 
+-- CONSULTAS
 
 -- #001 Obtener todos los usuarios.
 		select * from usuarios;
--- #002 Obtener todos los usuarios. 
+-- #002 Obtener todos los usuarios.
 		select * from bicicletas;
--- #003 Obtener todos los alquileres. 
+-- #003 Obtener todos los alquileres.
 		select * from alquileres;
--- #003 Obtener todos los alquileres. 
-		select * from facturas;
+-- #003 Obtener todos los alquileres.
+		select * from estaciones;
 -- #004	Obtener las Bicicletas que estan Activas.
 		select * from bicicletas where estado_bici = "Active";
 -- #005 Obtener las Bicicletas que no estan en funcionamiento.
@@ -128,17 +128,18 @@ insert into facturas values
 -- #006 Obtener el número de bicicletas que hay en cada estacion.
 		select count(*) from bicicletas group by parking;
 -- #007 Activar las bicis
-		update estado_bici set estado_bici = "Active" where estado_bici = "No_Active";
--- #008 Anyadir una nueva estacio de bicicletas
-		insert into estaciones values (5,"Sant Gervasi",10); 
+		update bicicletas set estado_bici = "Active";
+        set sql_safe_updates = 0;
+-- #008 Añadir una nueva estacio de bicicletas
+		insert into estaciones values (5,"Sant Gervasi",10);
 -- #009 Crear una lista de todos los DNI
 		select dni from usuarios;
 -- #010 Saber cuantas bicicletas hay activas en la parada de Gracia.
-		select id_bici from bicicletas  join estaciones on parking=id_est where  estado_bici = "Active"  and  barrio =  "Gracia" ;
--- #011 
-		select * from customers order by    desc;
--- #012
-
+		select id_bici from bicicletas  join estaciones on parking=id_est where  estado_bici = "Active"  and  barrio =  "Gracia";
+-- #011 Ordenar las estaciones por capacidad de bicicletas de mayor a menor.
+		select * from estaciones order by capacidad  desc;
+-- #012 Sacar el promedio de bicis en todas las estaciones.
+		select avg(capacidad) from estaciones; -- not working
 -- #013
 
 -- #014
