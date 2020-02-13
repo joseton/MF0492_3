@@ -15,11 +15,17 @@ tiempo_uso int,
 pagado boolean
 );
 
-create table bicicletas(
+create table bicicletas (
 id_bicicleta int primary key auto_increment,
 estacion varchar(3),
 electrica boolean
 );
+create table bicicletas_bajas(
+id_bicicletas_baja int primary key auto_increment,
+id_bicicleta_baja int ,
+fecha_bicicleta_baja datetime default current_timestamp
+);
+
 
 create table alquiler(
 id_alquiler int primary key auto_increment,
