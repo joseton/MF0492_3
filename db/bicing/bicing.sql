@@ -30,10 +30,10 @@ barrio varchar(15),
 capacidad int
 );
 insert into estaciones values
-(1,"Gracia",10),
-(2,"Carmelo",20),
-(3,"Example",15),
-(4,"Maresme",8);
+(1,"Gracia",5),
+(2,"Carmelo",4),
+(3,"Example",6),
+(4,"Maresme",4);
 
 
 create table bicicletas(
@@ -57,7 +57,8 @@ insert into bicicletas values
 (8,"Active",true,2),
 (9,"No_Active",false,4),
 (10,"Active",true,3),
-(11,"Active",true,4);
+(11,"Active",true,4),
+(12,"Active",true,4);
 
 create table alquileres(
 id_alq int primary key auto_increment,
@@ -84,7 +85,6 @@ insert into alquileres values (null,"2020-02-05 14:30:00","2020-02-05 15:00:17",
 insert into alquileres values (null,"2020-02-05 10:30:30","2020-02-05 10:45:00",8,"52215174T");
 insert into alquileres values (null,"2020-02-05 20:20:00","2020-02-05 21:30:55",9,"21115174V");
 insert into alquileres values (null,"2020-02-05 19:00:54","2020-02-05 19:40:44",10,"63315174C");
-
 
 
 
