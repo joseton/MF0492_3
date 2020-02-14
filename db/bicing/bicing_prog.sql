@@ -1,54 +1,50 @@
 use bicing;
--- valida cuantas bicicletas electricas hay  hay en cada estacion  (true=1/false=0)
--- Si el campo es negativo, se aplica un NULL
+--   (true=1/false=0) si añado bici en bbdd se comprueba si es electrica
+--  o update  bicicleta la envio a la estacion 061
+
 drop trigger if exists bicicletas_bu;
 delimiter //
 create trigger bicicletas_bu after update
 on bicicletas for each row
 begin
-	if new.electrica = 0 then
-		update bicicletas set new.electrica = false;
-	end if;
+	
 end //
-
-delimiter ;
 -- comprobación
 
-insert into bicicletas values (null,"061",true);
+select * from mantenimiento;
 select * from bicicletas;
 
--- trigger 2
+-- trigger 2  cuando insertas una bicicleta se vea en la tabla de mantenimiento
+-- inserta en cada estacion una bici cuando la bicicleta sea electrica
 drop trigger if exists bicicletas_cu;
 delimiter //
 create trigger bicicletas_cu after insert
 on bicicletas for each row
 begin
-	if new.electrica = 0 then
-		insert bicicletas set new.electrica = false;
-	end if;
+	insert into mantenimiento values (null,new.id_bicicleta,false);
+
 end //
-
-delimiter ;
 -- comprobación
-
 insert into bicicletas values (null,"061",true);
+select * from mantenimiento;
 select * from bicicletas;
 
 -- trigger 3
-
+-- elimina una bicicleta y se vea en la tabla de bicicletas  baja  el nº de la vez que se elimina si es la 1º vez la segunda etc ... y el codigo de la bicicleta con su fecha  de baja
 drop trigger if exists bicicletas_du;
 delimiter //
 create trigger bicicletas_du after delete
 on bicicletas  for each row
 begin
-	insert into  bicicletas_bajas values(null  old.id_bicicleta ,default);
+	insert into  bicicletas_bajas values(null, old.id_bicicleta ,default);
 
-	end if;
+end //
 
 delimiter ;
 -- comprobación
-
-select * from  bicicletas_bajas;
+SET FOREIGN_KEY_CHECKS = 0;
+delete from bicicletas where id_bicicleta =1;
+select *from bicicletas_bajas;
 select * from bicicletas;
 
 -- aqui evento
