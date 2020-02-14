@@ -1,18 +1,17 @@
 use bicing;
---   (true=1/false=0) si añado bici en bbdd se comprueba si es electrica
---  o update  bicicleta la envio a la estacion 061
-
+--   (true=1/false=0) si update bici en bbdd se comprueba si es electrica y no esta defectuosa
 drop trigger if exists bicicletas_bu;
-delimiter //
+delimiter $$
 create trigger bicicletas_bu after update
 on bicicletas for each row
 begin
-	
-end //
+	insert into  cambios_bicicletas values (null,old.id_bicicleta,concat("se ha cambiado el campo estacion ", old.estacion," por ",new.estacion ),default);
+end $$
+delimiter;
 -- comprobación
-
-select * from mantenimiento;
+select * from cambios_bicicletas;
 select * from bicicletas;
+update bicicletas set estacion="061" where id_bicicleta = 3;
 
 -- trigger 2  cuando insertas una bicicleta se vea en la tabla de mantenimiento
 -- inserta en cada estacion una bici cuando la bicicleta sea electrica
