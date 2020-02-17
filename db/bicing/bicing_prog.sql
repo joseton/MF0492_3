@@ -85,7 +85,7 @@ update alquileres set fecha_llegada = default, estacion_llegada=1 where id_alqui
 update alquileres set fecha_llegada = default, estacion_llegada=3 where id_alquiler=7;
 update alquileres set fecha_llegada = default, estacion_llegada=5 where id_alquiler=8;
 update alquileres set fecha_llegada = default, estacion_llegada=13 where id_alquiler=9;
-update alquileres set fecha_llegada = default, estacion_llegada=7 where id_alquiler=10;
+update alquileres set fecha_llegada = default, estacion_llegada=7 where id_alquiler=11;
 -- --
 
 -- EVENTO - Creamos un evento que nos sirve para rellenar las bibicletas en las estaciones y dejarlas completas de nuevo
