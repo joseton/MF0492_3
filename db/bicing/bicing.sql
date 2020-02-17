@@ -31,7 +31,8 @@ create table estaciones(
 	id_estacion int primary key auto_increment,
     nombre varchar(45),
     direccion varchar(100),
-    capacidad int
+    capacidad int,
+    cant_disp int
 );
 
 create table tarifas(
@@ -152,19 +153,19 @@ insert into fabricantes values
 (null, "Vitoria", "+343654179844");
 
 insert into estaciones values
-(null, "Sagrada familia", "Carrer sagrada familia ", 15 ),
-(null, "Parc Guell", "Carrer parc guell ", 4),
-(null, "Sants estació", "Carrer Sants estació ", 20),
-(null, "Palau reial", "Carrer Palau reial ", 60 ),
-(null, "Secretari Coloma ", "Carrer Secretari Coloma ", 20),
-(null, "Taxdir ", "CarrerTaxdir", 50),
-(null, "Rambla Catalunya", "Carrer Rambla Catalunya ", 10 ),
-(null, "Plaza Espanya ", "Carrer Plaza Espanya ", 12),
-(null, "Barceloneta ", "Carrer Barceloneta ", 15),
-(null, "Maria Cristina ", "Carrer Maria Cristina ", 20),
-(null, "Corsega ", "Carrer Corsega", 30 ),
-(null, "CIFO la Violeta ", "Carrer CIFO la Violeta ", 10 ),
-(null, "L'illa ", "Carrer L'illa ", 15);
+(null, "Sagrada familia", "Carrer sagrada familia ", 15, null ),
+(null, "Parc Guell", "Carrer parc guell ", 4, null),
+(null, "Sants estació", "Carrer Sants estació ", 20, null),
+(null, "Palau reial", "Carrer Palau reial ", 60, null ),
+(null, "Secretari Coloma ", "Carrer Secretari Coloma ", 20, null),
+(null, "Taxdir ", "CarrerTaxdir", 50, null),
+(null, "Rambla Catalunya", "Carrer Rambla Catalunya ", 10, null ),
+(null, "Plaza Espanya ", "Carrer Plaza Espanya ", 12, null),
+(null, "Barceloneta ", "Carrer Barceloneta ", 15, null),
+(null, "Maria Cristina ", "Carrer Maria Cristina ", 20, null),
+(null, "Corsega ", "Carrer Corsega", 30, null ),
+(null, "CIFO la Violeta ", "Carrer CIFO la Violeta ", 10, null ),
+(null, "L'illa ", "Carrer L'illa ", 15, null);
 
 insert into bicicletas values
 (null, true, 1),
