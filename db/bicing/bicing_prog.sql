@@ -92,5 +92,64 @@ select * from salida_bici; -- comprobamos que se haya hecho el retiro de bicis d
 select * from entrada_bici; -- comprobamos el ingreso de bicis al Punto que estaba vacío
 
 
+-- CURSOR que retorne el nombre y apellido del usuario que más ha utilizado el servicio en un Punto Bicing,
+-- y el número de bicis que ha sacado de ahí
+
+-- En primer lugar, creamos una tabla donde almacenaremos la información del número máximo de usos (bicis utilizadas) 
+-- por parte de un mismo usuario, así como su nombre y apellido
+drop table if exists usuario_pincipal;
+create table usuario_pincipal(
+	id int primary key auto_increment,
+    nombre varchar(45),
+    apellido varchar (45),
+    bicis int
+);
+
+drop procedure if exists usuario_ppal; -- Hacemos un "drop" del Procedure que vamos a crear para correr el Cursor
+delimiter $$
+create procedure usuario_ppal(in id_punto int) -- Creamos el Procedure
+begin
+	-- Declaramos las variables que utilizaremos para extraer y almacenar la información
+    declare done boolean default false;
+    declare nombre_usuario, temp_nombre, apellido_usuario, temp_apellido varchar(45);
+    declare num_bicis int;
+    declare temp_bicis int default (select max(id_punto) from salida_bici where id_punto = id_punto);
+
+    -- Declaramos el cursor y la consulta que realizaremos
+    declare cursor_usuario_ppal cursor for
+    select U.nombre, U.Apellido, count(*) from usuario U join salida_bici S
+    on S.id_salida = U.dni where S.id_punto = id_punto group by id_salida;
+
+    declare continue handler for not found set done = true; -- Manejador de error tipo "NOT FOUND"
+
+    open cursor_usuario_ppal; -- Apertura del cursor
+
+    loop_lectura: loop -- Bucle de lectura de columnas
+		-- lectura primera fila
+        fetch cursor_usuario_ppal into nombre_usuario, apellido_usuario, num_bicis;
+        -- si el cursor detecta que no hay fila para leer, salimos del bucle
+        if done then
+			leave loop_lectura;
+		end if;
+
+        if num_bicis >= temp_bicis then
+			set temp_nombre = nombre_usuario;
+            set temp_apellido = apellido_usuario;
+            set temp_bicis = num_bicis;
+            insert into usuario_pincipal values (null, temp_nombre, temp_apellido, temp_bicis);
+		end if;
+
+    end loop;
+
+    close cursor_usuario_ppal; -- Cierre del cursor
+	-- select temp_nombre,temp_apellido,temp_bicis;
+    select * from usuario_pincipal; -- consultamos las variables temporales
+
+end $$
+
+delimiter ;
+
+call usuario_ppal(2);
+
 
 -- Final TODO Challenge 2
