@@ -17,7 +17,7 @@ insert into estaciones values
 
 select * from estaciones;
 
--- TRIGGER 2 - Creamos un trigger para formater los datos que entran en la BD a la hora de insertarlos en la tabla de usuarios
+-- TRIGGER 2 - -Creamos un trigger para formater los datos que entran en la BD a la hora de insertarlos en la tabla de usuarios
 
 drop trigger if exists formatear_datos;
 delimiter $$
