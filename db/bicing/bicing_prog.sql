@@ -59,3 +59,61 @@ do
 
 select * from bicicletas;
 -- aqui cursor
+-  CURSOR
+--
+-- Se llama a un procedimiento
+
+
+select * from usuarios;
+
+drop table if exists tiempo_max;
+create table tiempo_max(
+	id int primary key auto_increment,
+    nombre varchar(25),
+    tiempo_uso int
+     );
+
+drop procedure if exists mayor_uso;
+delimiter $$
+create procedure mayor_uso()
+begin
+	-- declaramos las variables
+
+    declare done boolean default false;
+    declare inicio_uso, temp_inicio_uso datetime default current_timestamp ;
+    declare temp_tiempo int default (select max(tiempo_uso) from usuarios);
+
+    -- declaramos el cursor para la consulta que nos indica el enunciado
+
+     declare cursor_tiempo_uso cursor for select nombre, tiempo_uso from usuarios;
+
+     declare continue handler for not found set done = true;
+       -- abrimos el cursor
+    open cursor_tiempo_uso;
+    -- lectura de las columnas con un bucle
+    loop_lectura: loop
+		-- lectura de la primera fila
+        fetch cursor_tiempo_uso into nombre, tiempo_uso;
+        -- si el cursor detecta que no hay fila para leer,
+        -- salimos del bucle
+        if done then
+			leave loop_lectura;
+		end if ;
+        if tiempo_uso >= temp_tiempo_uso then
+		       set temp_inicio_uso= inicio_uso;
+                set temp_tiempo= tiempo_uso;
+               insert into tiempo_max values (null, inicio_uso, temp_tiempo);
+		end if;
+
+    end loop;
+    -- cerramos el cursor
+    close cursor_tiempo_uso;
+     -- consultamos las variables temporales
+    select * from tiempo_max;
+
+end $$
+
+delimiter ;
+call mayor_uso();
+
+select * from usuarios;
