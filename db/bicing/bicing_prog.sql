@@ -169,12 +169,5 @@ do
         call resetear_estacion();
 
 
-
-
-
--- procedimiento de mantenimiento de bicicletas y estaciones que se ejecute todos las noches y realice un recuento de uso de cada bicicleta
--- para que en caso necesario se retire de circulación para su mantenimiento.
--- y se registre en una nueva tabla los dias que ha estado sin uso.
-
 --
 -- Final TODO Challenge 2
