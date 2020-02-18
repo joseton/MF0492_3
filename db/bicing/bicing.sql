@@ -62,7 +62,7 @@ create table mantenimiento (
 
 -- Inserts de las tablas
 
-insert into usuarios values 
+insert into usuarios values
 (null,"Pepe", "Perez Perez","perezcuadrado@gmail.com",default,"ES79 2100 0813 6101 2345 6789",1),
 (null, "Pepa","Pereza Pereza","muchapereza@hotmail.com", default,"ES42 5400 8612 5402 9999 1111",0);
 
@@ -88,7 +88,7 @@ insert into bicis values
 
 insert into alquileres values
 (null,1,1,default, '2020-03-01 23:59:45',"Eixampla esquerra",0),
-(null,1,3,default,null,null,1);
+(null,2,3,default,null,null,1);
 
 insert into mantenimiento values
 (null,8,default),
@@ -97,39 +97,98 @@ insert into mantenimiento values
 
 -- Queries
 -- 1 mostrar usuarios registrados
-select * from usuarios; 
+select * 
+from usuarios;
 
 -- 2 mostrar usuarios dados de baja
-select * from usuarios_bajas;
+select * 
+from usuarios_bajas;
 
 -- 3 mostrar bicis
-select * from bicis;
+select * 
+from bicis;
 
 -- 4 mostrar registro de alquileres
-select * from alquileres;
+select * 
+from alquileres;
 
 -- 5 mostrar bicis en mantenimineto
-select * from mantenimiento;
+select * 
+from mantenimiento;
 
 -- 6 mostrar usuarios endeudados
-select * from usuarios U join usuarios_bajas UB where U.pagado = 0 or UB.deudas = 0 group by U.id_usuario;
+select * 
+from usuarios U join usuarios_bajas UB 
+where U.pagado = 0 or UB.deudas = 0 
+group by U.id_usuario;
 
 -- 7 mostrar numero de cada tipo de bici
-select tipo_bici,count(*) from bicis group by tipo_bici;
+select tipo_bici,count(*) 
+from bicis 
+group by tipo_bici;
 
 -- 8 mostrar bicis disponibles
-select * from bicis   where not exists (select 1 from mantenimiento  where bicis.id_bici = mantenimiento.id_bici) and 
-not exists (select 1 from alquileres where alquileres.en_uso = 1 and bicis.id_bici = alquileres.id_bici);
+select * 
+from bicis  
+ where not exists 
+	(select 1 
+    from mantenimiento  
+    where bicis.id_bici = mantenimiento.id_bici) 
+and not exists 
+	( select 1 
+    from alquileres 
+    where alquileres.en_uso = 1 
+    and bicis.id_bici = alquileres.id_bici);
 
 -- 9 mostrar estaciones con bicis disponibles en cada estacion
-select estacion, count(*) as bicis from bicis    where not exists (select 1 from mantenimiento  where bicis.id_bici = mantenimiento.id_bici) and 
-not exists (select 1 from alquileres where alquileres.en_uso = 1 and bicis.id_bici = alquileres.id_bici) group by estacion;
+select estacion, count(*) as bicis 
+from bicis    
+where not exists 
+	( select 1
+	from mantenimiento  
+	where bicis.id_bici = mantenimiento.id_bici) 
+and not exists 
+	(select 1 
+    from alquileres 
+    where alquileres.en_uso = 1 
+    and bicis.id_bici = alquileres.id_bici) 
+group by estacion;
 
 -- 10 mostrar cuantos alquileres hay en cada estación
+select bicis.estacion,
+	(select count(*) 
+    from alquileres 
+    where id_bici = bicis.id_bici) as alquileres 
+from bicis;
 
+-- 11 mostrar cuantas veces se ha alquilado cada bici
+select bicis.id_bici,
+	(select count(*)
+    from alquileres
+    where id_bici = bicis.id_bici) as alquileres
+from bicis;
 
-SELECT DISTINCT bicis.estacion, 
-       (SELECT COUNT(*) FROM alquileres
-        WHERE id_bici = bicis.id_bici) AS alquileres
-FROM bicis;
+-- 12 mostrar para cada usuario el numero de alquileres
+select id_usuario,
+	(select count(*)
+    from alquileres
+    where id_usuario = usuarios.id_usuario) as alquileres
+from usuarios;
+
+-- 13 seleccionar el nombre, apellidos y mail de todos los usuarios registrados 
+select nombre, apellidos, email 
+from usuarios;
+
+-- 14 mostrar cuantas bicis hay en mantenimiento
+select count(*)
+from mantenimiento;
+
+-- 15 mostrar las estaciones de origen de las bicis en mantenimiento
+select id_bici, estacion
+from bicis
+where exists 
+	( select 1
+    from mantenimiento
+    where id_bici=bicis.id_bici);
+
 
