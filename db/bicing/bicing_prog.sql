@@ -64,14 +64,12 @@ select * from bicicletas;
 -- Se llama a un procedimiento
 
 
-select * from usuarios;
-
 drop table if exists tiempo_max;
 create table tiempo_max(
 	id int primary key auto_increment,
     nombre varchar(25),
     tiempo_uso int
-     );
+);
 
 drop procedure if exists mayor_uso;
 delimiter $$
@@ -80,8 +78,9 @@ begin
 	-- declaramos las variables
 
     declare done boolean default false;
-    declare inicio_uso, temp_inicio_uso datetime default current_timestamp ;
-    declare temp_tiempo int default (select max(tiempo_uso) from usuarios);
+    declare nombre, temp_nombre varchar(25);
+    declare tiempo_uso int;
+    declare temp_tiempo_uso int default (select max(tiempo_uso) from usuarios);
 
     -- declaramos el cursor para la consulta que nos indica el enunciado
 
@@ -96,13 +95,15 @@ begin
         fetch cursor_tiempo_uso into nombre, tiempo_uso;
         -- si el cursor detecta que no hay fila para leer,
         -- salimos del bucle
+
         if done then
 			leave loop_lectura;
 		end if ;
+
         if tiempo_uso >= temp_tiempo_uso then
-		       set temp_inicio_uso= inicio_uso;
-                set temp_tiempo= tiempo_uso;
-               insert into tiempo_max values (null, inicio_uso, temp_tiempo);
+		       set temp_tiempo_uso= tiempo_uso;
+                set temp_nombre= nombre;
+               insert into tiempo_max values (null, temp_nombre, temp_tiempo_uso);
 		end if;
 
     end loop;
