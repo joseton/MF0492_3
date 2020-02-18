@@ -92,10 +92,12 @@ select * from salida_bici; -- comprobamos que se haya hecho el retiro de bicis d
 select * from entrada_bici; -- comprobamos el ingreso de bicis al Punto que estaba vacío
 
 
--- CURSOR que retorne el nombre y apellido del usuario que más ha utilizado el servicio en un Punto Bicing,
--- y el número de bicis que ha sacado de ahí
+-- CURSOR que retorna el nombre y apellido del usuario que más ha utilizado el servicio en un Punto Bicing,
+-- y el número acumulado de bicis que ha sacado de ahí
 
--- En primer lugar, creamos una tabla donde almacenaremos la información del número máximo de usos (bicis utilizadas) 
+use bicing;
+
+-- En primer lugar, creamos una tabla donde almacenaremos la información del número máximo de usos (bicis utilizadas)
 -- por parte de un mismo usuario, así como su nombre y apellido
 drop table if exists usuario_pincipal;
 create table usuario_pincipal(
@@ -112,7 +114,7 @@ begin
 	-- Declaramos las variables que utilizaremos para extraer y almacenar la información
     declare done boolean default false;
     declare nombre_usuario, temp_nombre, apellido_usuario, temp_apellido varchar(45);
-    declare num_bicis int;
+    declare num_bicis int; -- aquí almacenaremos el número de bicis que el usuario haya sacado
     declare temp_bicis int default (select max(id_punto) from salida_bici where id_punto = id_punto);
 
     -- Declaramos el cursor y la consulta que realizaremos
@@ -122,12 +124,12 @@ begin
 
     declare continue handler for not found set done = true; -- Manejador de error tipo "NOT FOUND"
 
-    open cursor_usuario_ppal; -- Apertura del cursor
+    open cursor_usuario_ppal; -- Apertura del Cursor
 
-    loop_lectura: loop -- Bucle de lectura de columnas
-		-- lectura primera fila
+    loop_lectura: loop -- Bucle de lectura
+		-- lectura que realizará el Cursor fila a fila
         fetch cursor_usuario_ppal into nombre_usuario, apellido_usuario, num_bicis;
-        -- si el cursor detecta que no hay fila para leer, salimos del bucle
+        -- salida del bucle
         if done then
 			leave loop_lectura;
 		end if;
@@ -141,15 +143,31 @@ begin
 
     end loop;
 
-    close cursor_usuario_ppal; -- Cierre del cursor
+    close cursor_usuario_ppal; -- Cierre del Cursor
 	-- select temp_nombre,temp_apellido,temp_bicis;
-    select * from usuario_pincipal; -- consultamos las variables temporales
+    select * from usuario_pincipal; -- consulta de datos de la tabla creada, con info almacenada en variables temporales
 
 end $$
 
 delimiter ;
 
 call usuario_ppal(2);
+
+
+-- EVENTO que cada minuto borra registros de salidas de bicis cuando han sido retiradas por los camiones
+-- de la empresa, pero sin borrar las salidas por parte de usuarios
+
+set global event_scheduler = ON; -- activamos el programador de eventos
+
+use bicing;
+
+drop event if exists borrar_salidas_furgon; -- drop del evento que vamos a crear
+create event borrar_salidas_furgon -- creamos el evento
+on schedule at now() + interval 1 minute --
+do -- definición de la acción a ejecutar por el evento:
+	delete from salida_bici where furgon = true; -- borrar de la tabla salida_bici los registros cuando el campo booleano furgón es true
+
+select * from salida_bici; -- consultamos la tabla para verificar los registros vigentes y su borrado luego de 1 minuto
 
 
 -- Final TODO Challenge 2
