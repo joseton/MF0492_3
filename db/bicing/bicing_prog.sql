@@ -78,8 +78,8 @@ begin
 	-- declaramos las variables
 
     declare done boolean default false;
-    declare nombre, temp_nombre varchar(25);
-    declare tiempo_uso int;
+    declare nombre_cursor , temp_nombre varchar(25);
+    declare temp_cursor int;
     declare temp_tiempo_uso int default (select max(tiempo_uso) from usuarios);
 
     -- declaramos el cursor para la consulta que nos indica el enunciado
@@ -90,9 +90,10 @@ begin
        -- abrimos el cursor
     open cursor_tiempo_uso;
     -- lectura de las columnas con un bucle
+
     loop_lectura: loop
 		-- lectura de la primera fila
-        fetch cursor_tiempo_uso into nombre, tiempo_uso;
+        fetch cursor_tiempo_uso into nombre_cursor, temp_cursor;
         -- si el cursor detecta que no hay fila para leer,
         -- salimos del bucle
 
@@ -100,21 +101,21 @@ begin
 			leave loop_lectura;
 		end if ;
 
-        if tiempo_uso >= temp_tiempo_uso then
-		       set temp_tiempo_uso= tiempo_uso;
-                set temp_nombre= nombre;
-               insert into tiempo_max values (null, temp_nombre, temp_tiempo_uso);
+        if temp_cursor = temp_tiempo_uso then
+
+               -- set temp_nombre= nombre;
+               insert into tiempo_max values (null, nombre_cursor, temp_tiempo_uso);
 		end if;
 
     end loop;
     -- cerramos el cursor
     close cursor_tiempo_uso;
      -- consultamos las variables temporales
-    select * from tiempo_max;
+     select * from tiempo_max;
 
 end $$
 
 delimiter ;
 call mayor_uso();
 
-select * from usuarios;
+-- select * from usuarios;
