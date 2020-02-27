@@ -6,7 +6,6 @@
 // Plantear un segundo método que imprima el nombre y un mensaje si debe o no pagar impuestos (si el sueldo supera a 3000 paga impuestos)
 // Crear luego dos objetos del la clase Empleado y llamar a sus métodos.
 
-
-
+as
 
 // Final TODO Challenge 3
