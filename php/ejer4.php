@@ -4,9 +4,38 @@
 // Confeccionar una clase Menu.
 // Permitir añadir como atributos el nombre del enlace y la url.
 // Mostrar el menú en forma horizontal o vertical según que método llamemos.
+class Menu{
+    public $nombre=array();
+    public $url=array();
 
 
+    function agregar_item($m, $u){
+        $this->nombre[]=$m;
+        $this->url[]=$u;
+    }
 
+    function imprimir_horizontal(){
+        for ($i=0; $i < count($this->nombre) ; $i++) {
+            echo '<a href="' . $this->url[$i] . '">' . $this->nombre[$i] .'</a>   /  ';
+        }
+
+    }
+
+    function imprimir_vertical(){
+            echo "<br><br>";
+        for ($i=0; $i < count($this->nombre) ; $i++) {
+            echo '<a href="' . $this->url[$i] . '">' . $this->nombre[$i] .'</a> <br>';
+        }
+
+    }
+}
+
+$menu1 = new Menu();
+$menu1->agregar_item("Google", "http://www.google.es");
+$menu1->agregar_item("Yahoo", "https://es.yahoo.com");
+$menu1->imprimir_horizontal();
+
+$menu1->imprimir_vertical();
 
 
 // Final TODO Challenge 3
