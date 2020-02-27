@@ -21,11 +21,11 @@ public function inicializar($n,$s) {
 
 public function imprimir(){
     if ($this->sueldo > 3000) {
-        echo "Debido a su retribución debera pagar impuestos";
+        echo  "Hola ".$this->nombre." Debido a su retribución debera pagar impuestos <br>";
         // code...
     }
     else{
-        echo "No debe pagar impuestos";
+        echo   "".$this->nombre. " No debe pagar impuestos";
     }
 }
 
@@ -35,10 +35,10 @@ public function imprimir(){
 $empleado1 = new Empleado();
 $empleado1 -> inicializar("Bernat",3500);
 $empleado1 -> imprimir();
-/*
-$empleado2 = new empleado("Juan",2350);
-$empleado2 ->inicializar();
-$empleado2 -> imprimir();*/
+
+$empleado1 = new Empleado();
+$empleado1 -> inicializar("Joan",2500);
+$empleado1 -> imprimir();
 
 
 // Final TODO Challenge 3
