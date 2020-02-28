@@ -7,6 +7,33 @@
 // Crear luego dos objetos del la clase Empleado y llamar a sus métodos.
 
 
+class Empleado {
+  private $nombre;
+  private $sueldo;
+  public function inicializar($nom,$sue)
+  {
+    $this->nombre=$nom;
+    $this->sueldo=$sue;
+  }
+  public function pagaImpuestos()
+  {
+    echo $this->nombre;
+    echo '---';
+    if ($this->sueldo>3000)
+      echo 'Debe pagar impuestos';
+    else
+      echo 'No paga impuestos';
+    echo '<br>';
+  }
+}
+
+$empleado1=new Empleado();
+$empleado1->inicializar('Andres',2500);
+$empleado1->pagaImpuestos();
+$empleado1=new Empleado();
+$empleado1->inicializar('Marta',4300);
+$empleado1->pagaImpuestos();
+?>
 
 
 // Final TODO Challenge 3
