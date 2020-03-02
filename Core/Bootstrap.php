@@ -26,11 +26,7 @@ while (FALSE !== ($file = readdir($dh))) {
         // CHECK
         // echo $file;
         $file_name = pathinfo(CONFIG_DIR . $file . PATHINFO_FILENAME);
-
         $file_ext = pathinfo(CONFIG_DIR . $file . PATHINFO_EXTENSION);
-
-
-
         $config_key = preg_replace("/[^\w]/","",$file_name);
         var_dump($file_name);
         var_dump($file_ext);
