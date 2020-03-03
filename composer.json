@@ -1,19 +1,24 @@
 {
-    "name": "proyecto/MF0492_3",
+    "name": "proyecto/mvc",
     "description": "PROGRAMACIÓN WEB EN EL ENTORNO SERVIDOR",
     "license": "public",
     "authors": [
         {
-            "name": "",
-            "email": ""
+            "name": "CIFO VIoleta 2020",
+            "email": "prueba@gmail.com"
         }
     ],
 
     "require": {
-
+        "php": ">=7.0",
+        "components/jquery": ">=3.4.1",
+        "twig/twig": ">=2.0"
     },
 
     "autoload": {
-        
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "App/"
+        }
     }
 }

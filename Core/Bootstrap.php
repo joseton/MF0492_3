@@ -1,8 +1,7 @@
 <?php
 // Carga del sistema de Autoloading
-// autoload.php: Carga a través del composer todas las clases necesarias de 'requires' ó 'includes' para poder instanciar desde otro archivo
-// pendiente
-// require dirname(__DIR__) . '/vendor/autoload.php';
+// autoload.php: Carga a través del "composer" todas las clases necesarias de 'requires' ó 'includes' para poder instanciar desde otro archivo
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 // Activación del reporte de todos los errores y mensajes informativos
 error_reporting(E_ALL);
@@ -46,7 +45,7 @@ while (FALSE !== ($file = readdir($dh))) {
                 // si hay contenido
                 if(FALSE !== $content){
                     // json_decode (true): recoje el contenido del .json como un objeto predefinido (stdClass)
-                    // y añadiendo este 'true' este objeto será convertids a array asociativo.
+                    // y añadiendo este 'true' este objeto será convertido a array asociativo.
                     $_GLOBALS['config'][$config_key] = json_decode($content, true);
                 }
             }

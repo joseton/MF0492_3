@@ -6,6 +6,7 @@ require dirname(__DIR__) . '/Core/Bootstrap.php';
 // echo dirname(__DIR__);
 
 // La clase ReflectionClass devuelve la información sobre una clase 'FrontController'
+// https://www.php.net/manual/es/class.reflectionclass.php
 $reflector = new ReflectionClass(APP);
 $app = $reflector->newInstance();
 $app->run();
