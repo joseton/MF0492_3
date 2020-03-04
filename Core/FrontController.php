@@ -58,7 +58,10 @@ class FrontController{
         // var_dump($controller);
 
         // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
-
+        //obtenemos  la accion (metodo de la clase del controlador )soliictada mediante el metodo de la cldse"routing"
+        $action=$this->routing->getAction($this->request_uri);
+        //llama al metodo callAction de la clase
+          $controller->$action();
 
 
         // Final TODO Challenge 4
