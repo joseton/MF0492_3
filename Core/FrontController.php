@@ -58,8 +58,9 @@ class FrontController{
         // var_dump($controller);
 
         // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
-        $controller = $this->routing->getAction($this->request_uri);
-        $controller->challenge4();
+        $action = $this->routing->getAction($this->request_uri);
+        // echo $action;
+        $controller->$action();
         // CHECK
         // var_dump($controller);
 
