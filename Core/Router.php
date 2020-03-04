@@ -53,8 +53,16 @@ class Router{
     }
     // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
 
+    public function getAction($url){
+        $routesArray = (array)$this->routes;
+        // elimina toda el texto de la url precedido de '/'
+        $url = ltrim($url, '/');
+        // Nos quedamos con el texto después de '/'
+        $url = substr($url, strpos($url, '/') + 1);
 
+        return $routesArray[$url]->action;
 
-    // Final TODO Challenge 4
+    }
 
 }
+    // Final TODO Challenge 4
