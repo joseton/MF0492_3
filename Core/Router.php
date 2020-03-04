@@ -50,10 +50,17 @@ class Router{
         }else{
             echo 'Error 404. Ruta no encontrada';
         }
+
     }
     // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
 
+    public function getAction($url){
+      $routesArray = (array)$this->routes;
+      $url = ltrim($url, '/');
+      $url = substr($url, strpos($url, '/') + 1);
 
+          return $routesArray[$url]->action;
+    }
 
     // Final TODO Challenge 4
 
