@@ -57,7 +57,27 @@ class FrontController{
         // CHECK
         // var_dump($controller);
 
+
+
+
+
+
+
         // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
+
+
+        // El método getAction() se llama desde el 'FrontController', recoge la URL del request y comprueba la accion(método)  asignada en 'routes.json'
+
+
+
+        $action = $this->routing->getAction($this->request_uri);
+        $controller->$action();
+
+        // CHECK
+        // var_dump($action);
+        //
+        //
+        //
 
 
 
@@ -66,4 +86,6 @@ class FrontController{
 
 
     }
+
+
 }

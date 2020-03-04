@@ -50,14 +50,35 @@ class Router{
         }else{
             echo 'Error 404. Ruta no encontrada';
         }
+    }
 
-        // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
+    // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
 
+    // Desarrollar el método getAction(), en el Router.php que devuelve la acción que habrá que  ejecutarse, este método se llama desde el 'FrontController', recoge la URL del request y comprueba la accion(método)  asignada en 'routes.json'.
 
+     // Si no existe accion (null) en 'routes.json', carga por defecto el método 'index' del controlador 'HomeController'.
 
-        // Final TODO Challenge 4
+    public function getAction($url){
+
+        // (array)$this->routes : convierte el atributo en array
+        $routesArray_action = (array)$this->routes;
+        // CHECK
+        // var_dump($routesArray);
+
+        // elimina toda el texto de la url precedido de '/'
+        $url = ltrim($url, '/');
+        // Nos quedamos con el texto después de '/'
+        $url = substr($url, strpos($url, '/') + 1);
+        // CHECK
+        // echo $url;
+
+        return $routesArray[$url]->action;
+
 
 
     }
+
+
+    // Final TODO Challenge 4
 
 }
