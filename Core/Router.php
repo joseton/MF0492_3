@@ -74,8 +74,6 @@ class Router{
 
           //echo $result;
             return $action;
-            $llamada=new HomeController;
-            $llamada->$action();
       }else{
           echo 'Error 404. Ruta no encontrada';
       }
