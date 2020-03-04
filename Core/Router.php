@@ -61,7 +61,7 @@ class Router{
     public function getAction($url){
 
         // (array)$this->routes : convierte el atributo en array
-        $routesArray_action = (array)$this->routes;
+        $routesArray = (array)$this->routes;
         // CHECK
         // var_dump($routesArray);
 

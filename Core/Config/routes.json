@@ -10,7 +10,7 @@
 
     "home/challenge4": {
         "controller": "HomeController",
-        "action": "Challenge 4"
+        "action": "challenge4"
     }
 
 }
