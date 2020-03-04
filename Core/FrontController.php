@@ -53,9 +53,15 @@ class FrontController{
         // Obtenemos el controlador (clase) solicitado mediante un método del Router 'getController()'
         // $this->routing: Objeto creado de Router (contruct)
         $controller = $this->routing->getController($this->request_uri);
-        $controller->index();
+        // $controller->index();
         // CHECK
         // var_dump($controller);
+
+        // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
+
+
+
+        // Final TODO Challenge 4
 
 
 
