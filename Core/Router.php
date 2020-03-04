@@ -51,6 +51,12 @@ class Router{
             echo 'Error 404. Ruta no encontrada';
         }
 
+        // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
+
+
+
+        // Final TODO Challenge 4
+
 
     }
 
