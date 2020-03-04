@@ -41,6 +41,7 @@ class Router{
         if(array_key_exists($url, $routesArray)){
             // Se crea una variable donde guardamos el 'string' del controlador con otro 'string' (Controller) delante
             $result = '\\App\Controllers\\' . $routesArray[$url]->controller;
+
             // CHECK
             // echo $result;
             // Se crea instancia del controlador pertinente y se devuelve al FrontController
@@ -53,7 +54,32 @@ class Router{
     }
     // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
 
+    public function getAction($url){
+      //echo $url;
 
+      //controller es un indice de un array tambien $routesArray[$url]['controller']
+      $routesArray = (array)$this->routes;
+      $url = ltrim($url, '/');
+      $url = substr($url, strpos($url, '/') + 1);
+      //$result =  $routesArray[$url]->action;
+      //var_dump($result);
+      if(array_key_exists($url, $routesArray)){
+          // Se crea una variable donde guardamos el 'string' del controlador con otro 'string' (Controller) delante
+            $action=$routesArray[$url]->action;
+          //  echo $action;
+          if( $action == "") {
+              //el caso por defecto
+              $action = 'index';
+            }
+
+          //echo $result;
+            return $action;
+            $llamada=new HomeController;
+            $llamada->$action();
+      }else{
+          echo 'Error 404. Ruta no encontrada';
+      }
+    }
 
     // Final TODO Challenge 4
 
