@@ -61,8 +61,8 @@ class FrontController{
 
 
 
-        $controller = $this->routing->getAction($this->request_uri);
-         $controller->challenge4();
+        $action = $this->routing->getAction($this->request_uri);
+         $action->challenge4();
         // CHECK
         // var_dump($controller);
 
