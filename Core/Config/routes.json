@@ -7,11 +7,16 @@
         "controller": "HomeController",
         "action": "index"
     },
-    // QUITAR ESTOS COMENTARIOS AL ACABAR EL CÓDIGO!!!!!
-    // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
+
+    "home/challenge4": {
+        "controller": "HomeController",
+        "action": "challenge4"
+    }
 
 
 
-    // Final TODO Challenge 4
+
+
+
 
 }

@@ -17,6 +17,9 @@ define('CONFIG_DIR', dirname(__DIR__) . '/Core/Config/');
 // Se prepara una entrada en "$_GLOBALS['config']" para almacenar la configuración general de la app
 $_GLOBALS['config'] = array();
 
+// CHECK, AUN ESTA VACIA
+// var_dump($_GLOBALS['config']);
+
 // opendir: crea un recurso que accede a la carpeta que apunta por medio de CONFIG_DIR
 $dh = opendir(CONFIG_DIR);
 // lee el contenido de los archivos "JSON" dentro de "CONFIG_DIR" mientras el recurso ó la lectura NO devuelva "FALSE"

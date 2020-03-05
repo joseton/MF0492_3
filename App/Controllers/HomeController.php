@@ -12,6 +12,11 @@ class HomeController {
 
 
 
+    public function challenge4(){
+        echo 'Soy el Home Controller con acción (challenge4)';
+
+}
+
     // Final TODO Challenge 4
 
 }
