@@ -4,14 +4,13 @@
     "license": "public",
     "authors": [
         {
-            "name": "CIFO VIoleta 2020",
-            "email": "prueba@gmail.com"
+            "name": "CIFO Violeta 2020",
+            "email": "email@email.com"
         }
     ],
 
     "require": {
         "php": ">=7.0",
-        "components/jquery": ">=3.4.1",
         "twig/twig": ">=2.0"
     },
 
