@@ -10,12 +10,12 @@ class Router{
     * llama al método de buildRoutes() cada vez que se crea un objeto Router
     */
     function __construct(){
-        $this->buildRoutes();
+        $this->readRoutes();
     }
     /*
     * buildRoutes(): recoge las rutas de 'routes.json'
     */
-    public function buildRoutes(){
+    public function readRoutes(){
         $content = file_get_contents(dirname(__DIR__) . '/Core/Config/routes.json');
         $this->routes = json_decode($content);
         // CHECK
