@@ -17,4 +17,8 @@ abstract class Controller{
 
         } else { echo 'Acción (método): "' . $method . '" no encontrada en el controlador'; }
     }
+
+    public function renderView($view){
+        View::renderTwig($view);
+    }
 }
