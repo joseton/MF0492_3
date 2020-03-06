@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Controllers;
+// use: va unido a los namespaces. Funciona como un require, include...
+use Core\Controller;
+use Core\View;
 
-class HomeController {
+class HomeController extends Controller{
 
-    public function index(){ echo 'Soy el Home Controller con acción (index)'; }
-
-    // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
-    public function challenge4(){ echo 'Soy el Home Controller con acción (challenge4)'; }
-    // Final TODO Challenge 4
+    public function indexAction(){
+        View::renderTwig('Home/home.html');
+    }
 
 }

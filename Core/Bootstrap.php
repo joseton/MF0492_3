@@ -15,7 +15,7 @@ define('CONFIG_DIR', dirname(__DIR__) . '/Core/Config/');
 // echo CONFIG_DIR;
 
 // Se prepara una entrada en "$_GLOBALS['config']" para almacenar la configuración general de la app
-$_GLOBALS['config'] = array();
+$GLOBALS['config'] = array();
 
 // opendir: crea un recurso que accede a la carpeta que apunta por medio de CONFIG_DIR
 $dh = opendir(CONFIG_DIR);
@@ -40,13 +40,13 @@ while (FALSE !== ($file = readdir($dh))) {
         if(strtolower($file_name) == 'app' && strtolower($file_ext) == 'json'){
             // Se procesa y almacena en la configuración "$_GLOBALS['config']" en la posición que marca el index '$config_key'
             // Entra en el IF, en el caso que en la variable "$_GLOBALS['config']" no exista una "key" con nombre "app" (Sobreescritura)
-            if(!array_key_exists($config_key, $_GLOBALS['config'])){
+            if(!array_key_exists($config_key, $GLOBALS['config'])){
                 $content = file_get_contents(CONFIG_DIR . $file);
                 // si hay contenido
                 if(FALSE !== $content){
                     // json_decode (true): recoje el contenido del .json como un objeto predefinido (stdClass)
                     // y añadiendo este 'true' este objeto será convertido a array asociativo.
-                    $_GLOBALS['config'][$config_key] = json_decode($content, true);
+                    $GLOBALS['config'][$config_key] = json_decode($content, true);
                 }
             }
         }
@@ -59,7 +59,7 @@ closedir($dh);
 // Definición de la clase que representará la aplicación (frontcontroler)
 // Se define también la constante 'APP' que contiene el nombre de la clase que representa la aplicación
 // y que se instancia en 'index.php'
-$app = $_GLOBALS['config']['app']['front']['namespace'] . $_GLOBALS['config']['app']['front']['class'];
+$app = $GLOBALS['config']['app']['front']['namespace'] . $GLOBALS['config']['app']['front']['class'];
 // CHECK
 // echo $app;
 define('APP', $app);

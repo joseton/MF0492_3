@@ -6,9 +6,5 @@
     "home": {
         "controller": "HomeController",
         "action": "index"
-    },
-    "home/challenge4": {
-        "controller": "HomeController",
-        "action": "challenge4"
     }
 }

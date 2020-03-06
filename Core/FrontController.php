@@ -59,7 +59,12 @@ class FrontController{
 
         // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
         $action = $this->routing->getAction($this->request_uri);
-        $controller->$action();
+        // $controller->$action();
         // Final TODO Challenge 4
+
+        // método que se ejecuta en el Controller
+        $controller->callAction($action, $this->params);
+        // exit: para la ejecución del programa (FrontController ya ha realizado todas sus tareas)
+        exit;
     }
 }
