@@ -13,6 +13,8 @@ abstract class Controller{
             $array_params = [$params];
             // llamada al método de una clase enviando parámetros a dicho método
             // analogía: $controller->$method([$params]);
+            // $controller = new HomeController;
+            // $controller->indexAction($array_params);
             call_user_func_array([$this, $method], $array_params);
 
         } else { echo 'Acción (método): "' . $method . '" no encontrada en el controlador'; }
