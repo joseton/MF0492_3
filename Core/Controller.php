@@ -20,7 +20,7 @@ abstract class Controller{
         } else { echo 'Acción (método): "' . $method . '" no encontrada en el controlador'; }
     }
     // El controlador del Core es el que se encarga de renderizar la vista
-    public function renderView($view, $params){
+    public function renderView($view, $params, $render){
         // Si recibe un FALSE en el 3er parámetro, renderiza la vista con el primer render de la clase View, sino con el Twig
         if($render){ View::renderTwig($view, $params); }
         else{ View::render($view); }

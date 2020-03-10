@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+form{
+    width: 300px;
+    margin: 20px;
+}
+input{
+    width: 100%;
+}

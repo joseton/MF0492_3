@@ -4,8 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="public/css/forms.css">
+        <script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="public/js/user.js"></script>
     </head>
     <body>
+        <nav>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="register">Registro</a></li>
+            </ul>
+        </nav>
         {% block body %}
         {% endblock %}
     </body>
