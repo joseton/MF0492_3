@@ -15,7 +15,7 @@ abstract class Controller{
             // analogía: $controller->$method([$params]);
             // $controller = new HomeController;
             // $controller->indexAction($array_params);
-            call_user_func_array([$this, $method], $array_params);
+            return call_user_func_array([$this, $method], $array_params);
 
         } else { echo 'Acción (método): "' . $method . '" no encontrada en el controlador'; }
     }
