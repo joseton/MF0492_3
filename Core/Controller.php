@@ -15,12 +15,14 @@ abstract class Controller{
             // analogía: $controller->$method([$params]);
             // $controller = new HomeController;
             // $controller->indexAction($array_params);
-            return call_user_func_array([$this, $method], $array_params);
+            call_user_func_array([$this, $method], $array_params);
 
         } else { echo 'Acción (método): "' . $method . '" no encontrada en el controlador'; }
     }
     // El controlador del Core es el que se encarga de renderizar la vista
     public function renderView($view, $params){
-        View::renderTwig($view, $params);
+        // Si recibe un FALSE en el 3er parámetro, renderiza la vista con el primer render de la clase View, sino con el Twig
+        if($render){ View::renderTwig($view, $params); }
+        else{ View::render($view); }
     }
 }

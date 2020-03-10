@@ -8,7 +8,7 @@ use App\Models\HomeModel;
 class HomeController extends Controller{
 
     public function indexAction(){
-        Controller::renderView('Home/home.html');
+        Controller::renderView('Home/home.html', [] ,true);
     }
     public function conexionDBAction(){
         $model = new HomeModel;
