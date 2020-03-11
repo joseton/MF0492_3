@@ -47,7 +47,7 @@ class Router{
             $reflector = new \ReflectionClass($result);
             return $reflector->newInstance();
 
-        } else { Controller::renderView('404.html', [] ,true); exit; }
+        } else { View::renderTwig('404.html'); exit; }
     }
     // TODO Challenge 4: Añadir el código PHP que se indica en el ejercicio del Challenge 4
     /*

@@ -2,6 +2,7 @@
 namespace App\Controllers;
 // use: va unido a los namespaces. Funciona como un require, include...
 use Core\Controller;
+use Core\View;
 use App\Models\UserModel;
 
 class UserController extends Controller{
@@ -35,10 +36,10 @@ class UserController extends Controller{
     //             }
     //
     //         }
-    //         Controller::renderView('User/register.html', array('mensaje'=>$message), true);
+    //         View::renderTwig('User/register.html', array('mensaje'=>$message));
     //
     //     }else{
-    //         Controller::renderView('User/register.html', [], true);
+    //         View::renderTwig('User/register.html');
     //     }
     // }
 
