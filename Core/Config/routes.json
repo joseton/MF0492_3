@@ -14,5 +14,17 @@
     "register": {
         "controller": "UserController",
         "action": "index"
+    },
+    "auth": {
+        "controller": "UserController",
+        "action": "index"
+    },
+    "auth/register": {
+        "controller": "UserController",
+        "action": "registro"
+    },
+    "auth/login": {
+        "controller": "UserController",
+        "action": "login"
     }
 }
