@@ -2,9 +2,12 @@ $( document ).ready(function() {
 
     // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
+    $( "span" ).click(function() {
+        $( "loginForm" ).toggle();
+    });
     // Final TODO Challenge 5
 
-    
+
     // $("#regForm").submit(function( event ) {
     //     var pass = $('#pass').val();
     //     var pass2 = $('#pass2').val();
