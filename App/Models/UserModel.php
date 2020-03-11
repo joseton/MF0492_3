@@ -12,25 +12,29 @@ class UserModel extends Model{
         $this->db = Model::getInstanceDB();
     }
 
-    public function registrar($params){
+    // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
-        $sql = "insert into users values (:id, :email, :pass)";
+    // Final TODO Challenge 5
 
-        $stmt = $this->db->prepare($sql);
-
-        $id = null;
-        $email = $params['email'];
-        $pass = $params['pass'];
-
-        $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':pass', $pass);
-
-        if($stmt->execute()){
-            return true;
-        }else{
-            return false;
-        }
-    }
+    // public function registrar($params){
+    //
+    //     $sql = "insert into users values (:id, :email, :pass)";
+    //
+    //     $stmt = $this->db->prepare($sql);
+    //
+    //     $id = null;
+    //     $email = $params['email'];
+    //     $pass = $params['pass'];
+    //
+    //     $stmt->bindParam(':id', $id);
+    //     $stmt->bindParam(':email', $email);
+    //     $stmt->bindParam(':pass', $pass);
+    //
+    //     if($stmt->execute()){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
 
 }
