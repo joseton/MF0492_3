@@ -1,10 +1,17 @@
+
 $( document ).ready(function() {
+
+    $( ".toggle" ).click(function() {
+        $("#registro").toggle();
+        $("#login").toggle();
+    });
+
 
     // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
     // Final TODO Challenge 5
 
-    
+
     // $("#regForm").submit(function( event ) {
     //     var pass = $('#pass').val();
     //     var pass2 = $('#pass2').val();
