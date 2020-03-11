@@ -1,7 +1,65 @@
 *{
     box-sizing: border-box;
 }
+
+form{
+    position: ;
+    border: 3px solid black;
+    font-family: sans-serif;
+    font-size: 15px;
+    width: 275px;
+    margin: 50px auto;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    background-color: rgb(8, 231, 171);
+}
+
+form input{
+    border: 0px;
+    outline: none;
+    margin:  10px;
+    padding: 5px;
+}
+
+h3{
+    text-align: center;
+    font-size: 120%;
+}
+
+form h3{
+    text-align: center;
+
+}
+
+#logForm{
+    display: none;
+
+}
+
+
+
+span{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+p{
+    text-align: center;
+}
+/* #regForm{
+    display: block;
+
+} */
+
+
 /* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
+
+
+
+
 
 /* Final TODO Challenge 5 */
 

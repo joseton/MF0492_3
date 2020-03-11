@@ -9,6 +9,29 @@ class UserController extends Controller{
 
     // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
+//     - Controlador "UserController":
+        //     - Acción "index": Carga la vista "Auth.html" con los dos formularios
+        // de login y registro.
+
+
+        public function indexAction(){
+            View::renderTwig('User/Auth.html');
+
+        }
+
+        public function registerAction($params){
+            View::renderTwig('User/Auth.html');
+
+        }
+
+        public function loginAction($params){
+            View::renderTwig('User/Auth.html');
+
+
+        }
+
+
+
     // Final TODO Challenge 5
 
     // public function indexAction($params){
