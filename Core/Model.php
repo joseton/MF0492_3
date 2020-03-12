@@ -13,10 +13,12 @@ class Model{
         $DB_HOST = $GLOBALS['config']['app']['db']['host'];
         $DB_PORT = $GLOBALS['config']['app']['db']['port'];
         $DB_NAME = $GLOBALS['config']['app']['db']['dbname'];
-        $DB_USER = $GLOBALS['config']['app']['db']['user'];
-        $DB_PASS = $GLOBALS['config']['app']['db']['pass'];
+        $DB_USER = $GLOBALS['config']['app']['db']['reg_email'];
+        $DB_PASS = $GLOBALS['config']['app']['db']['reg_pass'];
+        $DB_REPEATPASS = $GLOBALS['config']['app']['db']['reg_r_pass'];
 
-        self::$instanceDB = new PDO("mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=UTF8",$DB_USER,$DB_PASS);
+
+        self::$instanceDB = new PDO("mysql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NAME;charset=UTF8",$DB_USER,$DB_PASS,$DB_REPEATPASS);
     }
     // PATRÓN SINGLETON: Sirve para devolver la conexión dependiendo si ya existe o no. En el caso de que exista, sólo devuelve y en lo contrario,
     // crea nueva instancia. Así no se generan múltiples peticiones de conexión en la APP

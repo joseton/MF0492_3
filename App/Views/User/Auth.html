@@ -4,27 +4,64 @@
 
 {% block body %}
 
-<h3>Formulario de LOGIN / REGISTRO</h3>
+<!-- <h3>Formulario de LOGIN / REGISTRO</h3>
 <form action="register" method="post" id="regForm">
     <h3>REGISTRO</h3>
     <input type="email" name="email" placeholder="Email">
-    <input type="password" name="pass" placeholder="Contraseña" id="pass">
-    <input type="password" name="pass2" placeholder="Repite contraseña" id="pass2">
+    <input type="password" name="pass" placeholder="Contraseña" id="pass" >
+    <input type="password" name="pass2" placeholder="Repite contraseña" id="pass2" >
     <input type="submit" name="registrar" value="Registrar">
     <p>¿Ya estás registrado? Haz clic <span id="regFormspan" onclick="mostrar_login()">AQUÍ</span></p>
     <div id="dataResp_reg" name="dataResp_reg"></div>
-    <!-- <div class="results">{{ mensaje }}</div> -->
+    <div class="results">{{ mensaje }}</div>
 </form>
 
 <form action="login" method="post" id="logForm">
     <h3>LOGIN</h3>
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="pass" placeholder="Contraseña" id="pass">
+    <input type="email" name="email" placeholder="Email" >
+    <input type="password" name="pass" placeholder="Contraseña" id="pass" >
     <input type="submit" name="login" value="Login">
     <p>¿No tienes cuenta? Haz clic <span id="logFormspan" onclick="mostrar_reg()">AQUÍ</span></p>
     <div id="dataResp_log" name="dataResp_log"></div>
-    <!-- <div class="results">{{ mensaje }}</div> -->
-</form>
+    <div class="results">{{ mensaje }}</div>
+</form> -->
+
+<h3>Formulario de LOGIN / REGISTRO</h3>
+
+<form id="registre" name="registre" novalidate>
+     <h3>REGISTRO</h3>
+     <label for="reg_email">Email<span>*</span></label>
+     <input type="email" id="reg_email" name="reg_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+     <span class="error"></span>
+     <label for="reg_pass">Contraseña<span>*</span></label>
+     <input type="password" id="reg_pass" name="reg_pass" minlength="6">
+     <span class="error"></span>
+     <label for="reg_r_pass">Repetir contraseña<span>*</span></label>
+     <input type="password" id="reg_r_pass" name="reg_r_pass">
+     <span class="error"></span>
+     <input type="submit" value="Registrar" name="botonreg">
+     <p>¿Ya estás registrado? Haz clic<span id="registrespan" onclick="mostrar_login()">AQUÍ</span></p>
+     <!-- <div id="dataResp_reg" name="dataResp_reg"></div> -->
+     <!-- MENSAJE.. -->
+     <div class="results"></div>
+ </form>
+
+ <form id="login" name="login" novalidate>
+     <h3>LOGIN</h3>
+     <label for="lg_email">Email<span>*</span></label>
+     <input type="email" id="lg_email" name="lg_email">
+     <span class="error" ></span>
+     <label for="lg_pass">Contraseña<span>*</span></label>
+     <input type="password" id="lg_pass" name="lg_pass">
+     <span class="error"></span>
+     <input type="button" value="Entrar" name="botonlog">
+     <p>¿No tienes cuenta? Haz clic <span id="loginspan" onclick="mostrar_reg()">AQUÍ</span></p>
+     <!-- <div id="dataResp_log" name="dataResp_log"></div> -->
+     <!-- MENSAJE.. -->
+     <div class="results">{{ mensaje }}</div>
+
+
+ </form>
 
 
 
