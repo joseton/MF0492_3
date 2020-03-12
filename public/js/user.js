@@ -18,13 +18,13 @@ $( document ).ready(function() {
            data: $("#regForm").serialize(),
            // control de acciones en el envio y respuesta del server
            success: function(dataResp){
-               $("$message").html(dataResp);
+               $("#dataResp_registro").html(dataResp);
            },
            beforeSend: function(){
-               $("$message").html('one moment please');
+               $("#dataResp_registro").html('one moment please');
            },
            error: function(){
-               $("#dataResp").html('Error en la comunicación con el servidor');
+               $("#dataResp_registro").html('Error en la comunicación con el servidor');
            }
        });
 
