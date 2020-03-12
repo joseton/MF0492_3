@@ -1,14 +1,7 @@
 *{
     box-sizing: border-box;
 }
-/* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
 
-/* Final TODO Challenge 5 */
-
-/* form{
-    width: 300px;
-    margin: 20px;
+#formAcceso{
+    display: none;
 }
-input{
-    width: 100%;
-} */

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block body %}
+
+<h3>Formulario de registro</h3>
+<form id="formRegistro" novalidate>
+    <input type="text" name="usuario" placeholder="Nombre de usuario">
+    <input type="password" name="pass" placeholder="Contraseña">
+    <input type="password" name="pass2" placeholder="Repite contraseña">
+    <input type="submit" value="registrar">
+    <span id="fr" onclick="formRegistro()">Ya eres usuario</span>
+    <div class="mensajePantalla"></div>
+</form>
+<form id="formAcceso" novalidate>
+    <input type="text" name="usuario" placeholder="Nombre de usuario">
+    <input type="password" name="pass" placeholder="Contraseña">
+    <input type="submit" value="acceder">
+    <span id="fa" onclick="formAcceso()">Nueva cuenta</span>
+    <div class="mensajePantalla"></div>
+</form>
+
+
+
+{% endblock %}

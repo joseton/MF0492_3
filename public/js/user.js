@@ -1,16 +1,37 @@
+
+
 $( document ).ready(function() {
 
-    // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
+    $("#fr").click(function(){
+        $("#formAcceso").toggle();
+        $("#formRegistro").toggle();
+    })
 
-    // Final TODO Challenge 5
+    $("#fa").click(function(){
+        $("#formRegistro").toggle();
+        $("#formAcceso").toggle();
+    })
 
-    
-    // $("#regForm").submit(function( event ) {
-    //     var pass = $('#pass').val();
-    //     var pass2 = $('#pass2').val();
-    //     if(pass != pass2){
-    //         event.preventDefault();
-    //         $('.results').html('Las contraseñas no coinciden!');
-    //     }
-    // });
+
+    $("#formRegistro").submit(function(event) {
+            event.preventDefault();
+           $.ajax({
+               // config. de datos de envío
+               type: 'post',
+               url: 'auth/register',
+               dataType: 'json',
+               data: $("#formRegistro").serialize(),
+               // control de acciones en el envio y respuesta del server
+               success: function(respuesta){
+                   $(".mensajePantalla").html(respuesta);
+               },
+               beforeSend: function(){
+                   $(".mensajePantalla").html('Esperando.........');
+               },
+               error: function(){
+                   $(".mensajePantalla").html('Error en la comunicación con el servidor');
+               }
+           });
+       });
+
 });
