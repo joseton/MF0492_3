@@ -23,8 +23,8 @@ class UserController extends Controller{
     }
 
     public function registerAction($params){
-
-        if(isset($params['registrar'])){
+        sleep (1);
+        if(isset($params['register'])){
             $email = $params['email'];
             $pass = $params['pass'];
 
@@ -41,19 +41,20 @@ class UserController extends Controller{
                 $model = new UserModel;
                 $result = $model->registrar($params);
                 if($result){
-                    $message = 'El registro se ha completado correctamente';
+                    echo json_encode('El registro se ha completado correctamente');
                 }else{
-                    $message = 'Error en el registro';
+                    echo json_encode('Error en el registro');
                 }
 
             }
-            View::renderTwig('User/Auth.html', array('mensaje'=>$message));
 
-        }else{
-            View::renderTwig('User/Auth.html');
         }
-    }
 
 
+      }
+
+      public function loginAction($params){
+
+      }
     // Final TODO Challenge 5
 }

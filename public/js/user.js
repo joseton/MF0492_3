@@ -5,6 +5,29 @@ $( document ).ready(function() {
       $("#regForm").toggle();
       $("#logForm").toggle();
     });
+
+    $("#regForm").submit(function(event) {
+
+        $.ajax({
+            type: 'POST',
+            url: ' auth/register',
+            dataType: 'json',
+            data: $("#regForm").serialize(),
+            // control de acciones en el envio y respuesta del server
+            success: function(dataResp){
+                $(".results").html(dataResp);
+            },
+            beforeSend: function(){
+                $(".results").html('Registrando...');
+            },
+            error: function(){
+                $(".results").html('Error en la comunicación con el servidor');
+            }
+        });
+        event.preventDefault();
+    });
+
+
     // Final TODO Challenge 5
 
 

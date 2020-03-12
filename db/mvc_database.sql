@@ -7,3 +7,5 @@ create table users(
     email varchar(45),
     pass varchar(45)
 );
+
+select * from users;

@@ -1,7 +1,30 @@
 *{
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 /* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
+body{
+  height: 100vh;
+}
+nav ul{
+  display: inline;
+  text-align: center;
+}
+nav ul li a{
+  color: silver;
+  font-size: 24px;
+  text-decoration: none;
+}
+nav ul li a:hover{
+  color: #575555;
+}
+h3{
+  color: #FF8B24;
+  font-size: 36px;
+  margin left: 50%;
+  text-align: center;
+  margin-top: 10%;
+}
 form{
     width: 400px;
     margin: 20px;
@@ -17,6 +40,7 @@ input{
   border-bottom: 1px solid gray;
   padding: 30px;
   text-align: center;
+  margin-top: 10%;
 }
 #logForm{
   display: none;
@@ -32,6 +56,9 @@ input{
 }
 .click_aqui{
   color: #FF8B24;
+}
+.click_aqui:hover{
+  color: #424242;
 }
 .results{
   color: red;

@@ -21,7 +21,7 @@
     },
     "auth/register": {
         "controller": "UserController",
-        "action": "registro"
+        "action": "register"
     },
     "auth/login": {
         "controller": "UserController",
