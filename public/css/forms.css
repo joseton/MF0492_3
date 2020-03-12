@@ -16,8 +16,9 @@ input{
 } */
 H3{
     text-align: center;
+    color:#1A6EB6;
     }
-    <h5>REGISTRO</H5>
+
     #regForm {
     margin: 0 auto;
     }
@@ -57,16 +58,30 @@ H3{
     H1{
         text-align: center;
     }
+    h2{
+        text-align: center;
+    }
     nav{
         text-align: center;
         display:inline;
 
     }
+    a{
+        text-decoration: none;
+        color:#1A6EB6;
+    }
     li{
         list-style-type: none;
         display:inline;
-        margin:5px;
+        margin:155px;
     }
     body{
-        background-color:E1E8EE;
+        background-color:#E1E8EE;
+        font-size:2em;
+        /* color:#4E5E65; */
+        /* color:#E84052; */
+        color:#1A6EB6;
+    }
+    hr{
+        color:4E5E65;
     }

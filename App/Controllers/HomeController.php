@@ -7,21 +7,7 @@ use App\Models\HomeModel;
 
 class HomeController extends Controller{
 
-    // public function indexAction(){
-    //     View::renderTwig('Home/home.html');
-    // }
-    // public function indexAction(){
-    //     View::renderTwig('auth.html');
-    // }
-    //
-    // public function login(){
-    //     View::renderTwig('auth.html');
-    // }
-    //
-    // public function register(){
-    //     View::renderTwig('auth.html');
-    // }
-    //
-    // }
-
+    public function indexAction(){
+        View::renderTwig('Home/home.html');
+    }
 }

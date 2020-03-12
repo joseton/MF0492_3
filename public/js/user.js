@@ -7,7 +7,52 @@ $( document ).ready(function() {
         $("#regForm").toggle();
 
     });
+    $("regForm").submit(function(event) {
+        event.preventDefault();
+       // método AJAX de jQuery
+       $.ajax({
+           // config. de datos de envío
+           type: 'POST',
+           url: 'auth/register',
+           dataType: 'json',
+           data: $("#regForm").serialize(),
+           // control de acciones en el envio y respuesta del server
+           success: function(dataResp){
+               $("$message").html(dataResp);
+           },
+           beforeSend: function(){
+               $("$message").html('one moment please');
+           },
+           error: function(){
+               $("#dataResp").html('Error en la comunicación con el servidor');
+           }
+       });
+
+   });
+   $("logForm").submit(function(event) {
+        event.preventDefault();
+      // método AJAX de jQuery
+      $.ajax({
+          // config. de datos de envío
+          type: 'POST',
+          url: 'auth/login',
+          dataType: 'json',
+          data: $("#logForm").serialize(),
+          // control de acciones en el envio y respuesta del server
+          success: function(dataResp){
+              $("$message").html(dataResp);
+          },
+          beforeSend: function(){
+              $("$message").html('one moment please');
+          },
+          error: function(){
+              $("#dataResp").html('Error en la comunicación con el servidor');
+          }
+      });
+
+  });
 });
+
 // $("#logform").click(function(){
 //     $("#logform").toggle();
 //     $("#regform").toggle();

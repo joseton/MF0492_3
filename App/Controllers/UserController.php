@@ -14,8 +14,17 @@ class UserController extends Controller{
     // Final TODO Challenge 5
 
     public function indexAction($params){
+        View::renderTwig('User/auth.html');
+    }
 
-        if(isset($params['registrar'])){
+
+
+
+
+
+
+
+        public function registerAction($params){
             $email = $params['email'];
             $pass = $params['pass'];
             // val sólo Email
@@ -25,8 +34,10 @@ class UserController extends Controller{
 
             if(empty($email)){
                 $message = 'El email esta vacío';
+                echo json_encode ($message);
             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                 $message = 'El email no es correcto';
+                echo json_encode ($message);
             }else{
 
                 $model = new UserModel;
@@ -38,11 +49,7 @@ class UserController extends Controller{
                 }
 
             }
-            View::renderTwig('User/register.html', array('mensaje'=>$message));
 
-        }else{
-            View::renderTwig('User/register.html');
-        }
     }
-
+    // public function loginAction($params){
 }
