@@ -14,5 +14,9 @@
     "register": {
         "controller": "UserController",
         "action": "index"
+    },
+    "register/user":{
+        "controller": "UserController",
+        "action": "register"
     }
 }

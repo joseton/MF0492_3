@@ -16,25 +16,25 @@ class UserModel extends Model{
 
     // Final TODO Challenge 5
 
-    // public function registrar($params){
-    //
-    //     $sql = "insert into users values (:id, :email, :pass)";
-    //
-    //     $stmt = $this->db->prepare($sql);
-    //
-    //     $id = null;
-    //     $email = $params['email'];
-    //     $pass = $params['pass'];
-    //
-    //     $stmt->bindParam(':id', $id);
-    //     $stmt->bindParam(':email', $email);
-    //     $stmt->bindParam(':pass', $pass);
-    //
-    //     if($stmt->execute()){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+    public function registrar($params){
+
+        $sql = "insert into users values (:id, :email, :pass)";
+
+        $stmt = $this->db->prepare($sql);
+
+        $id = null;
+        $email = $params['email'];
+        $pass = $params['pass'];
+
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':pass', $pass);
+
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
