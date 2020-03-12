@@ -15,8 +15,9 @@ class UserController extends Controller{
     }
 
     public function registerAction($params){
-        
+        // Test
         // var_dump($params);
+        sleep(2);
 
         $email = $params['email'];
         $pass = $params['pass'];
@@ -26,23 +27,57 @@ class UserController extends Controller{
         $email = trim($email);
 
         if(empty($email)){
-            $message = 'El email esta vacío';
+            echo json_encode('El email esta vacío');
         }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $message = 'El email no es correcto';
         }else{
 
             $model = new UserModel;
             $result = $model->registrar($params);
+            //TEST
+            // var_dump($params);
             if($result){
-                $message = 'Registro ok';
+                echo json_encode('Registro OK');
             }else{
-                $message = 'Error en el registro';
+                echo json_encode('Error en el registro');
             }
 
         }
-        View::renderTwig('User/auth.html', array('mensaje'=>$message));
+        // View::renderTwig('User/auth.html', array('mensaje'=>$message));
     }
 
+
+    public function loginAction($params){
+        // Test
+        // var_dump($params);
+        sleep(1);
+
+        $email = $params['email'];
+        $pass = $params['pass'];
+        // val sólo Email
+        $email = htmlspecialchars($email);
+        $email = stripslashes($email);
+        $email = trim($email);
+
+        if(empty($email)){
+            echo json_encode('El email esta vacío');
+        }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $message = 'El email no es correcto';
+        }else{
+
+            $model = new UserModel;
+            $result = $model->login($params);
+            //TEST
+            // var_dump($params);
+            if($result){
+                echo json_encode('Has entrado');
+            }else{
+                echo json_encode('Usuario o contraseña incorrecta');
+            }
+
+        }
+        // View::renderTwig('User/auth.html', array('mensaje'=>$message));
+    }
 
 
 
@@ -50,36 +85,6 @@ class UserController extends Controller{
 
     // Final TODO Challenge 5
 
-    // public function indexAction($params){
-    //
-    //     if(isset($params['registrar'])){
-    //         $email = $params['email'];
-    //         $pass = $params['pass'];
-    //         // val sólo Email
-    //         $email = htmlspecialchars($email);
-    //         $email = stripslashes($email);
-    //         $email = trim($email);
-    //
-    //         if(empty($email)){
-    //             $message = 'El email esta vacío';
-    //         }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    //             $message = 'El email no es correcto';
-    //         }else{
-    //
-    //             $model = new UserModel;
-    //             $result = $model->registrar($params);
-    //             if($result){
-    //                 $message = 'Registro ok';
-    //             }else{
-    //                 $message = 'Error en el registro';
-    //             }
-    //
-    //         }
-    //         View::renderTwig('User/register.html', array('mensaje'=>$message));
-    //
-    //     }else{
-    //         View::renderTwig('User/register.html');
-    //     }
-    //}
+
 
 }
