@@ -5,23 +5,27 @@
 {% block body %}
 
 
-<form action="register" method="post" id="registro">
-    <h6>Soy la sección de REGISTRO </h6>
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="pass" placeholder="Contraseña" id="pass">
-    <input type="password" name="pass2" placeholder="Repite contraseña" id="pass2">
+
+<form  id="regForm">
+
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="pass" placeholder="Contraseña" id="passreg">
+    <input type="password" name="pass2" placeholder="Repite contraseña" id="passreg2">
     <input type="submit" name="registrar" value="Registrar">
-    <div class="results">{{ mensaje }}</div>
+    <div class="results"></div>
     <p>¿Are you allready registered <span class="toggle">HERE</span></p>
 </form>
 
-<form action="login" method="post" id="login">
-    <h6>Soy la sección de LOGIN  </h6>
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="pass" placeholder="Contraseña" id="pass">
+<form  id="logForm">
+
+    <input type="text" name="email" placeholder="Email">
+    <input type="password" name="pass" placeholder="Contraseña" id="passlog">
     <input type="submit" name="registrar" value="login">
-    <div class="results">{{ mensaje }}</div>
+    <div class="results"></div>
     <p>Don't Have an Account? Click Here <span class="toggle">HERE</span></p>
 </form>
 
+<footer>
+        <p class='footer'>© Mateu's Form 2020</p>
+</footer>
 {% endblock %}

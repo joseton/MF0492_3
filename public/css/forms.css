@@ -1,19 +1,85 @@
 
+/* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 *{
     box-sizing: border-box;
+
 }
+
+body {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 30px;
+    background: #2E5266;
+    margin: 0%;
+}
+
+.nav{
+    background-color: #9FB1BC;
+    position: relative;
+}
+ul {
+    margin: 0%!important;
+    padding-top: 0% !important;
+
+}
+ul li {
+    display: inline;
+
+
+}
+ul li a {
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+}
+
 form{
+    border: 2px;
     width: 300px;
     margin: 20px;
+    padding: 20px;
+    margin-left: 35%;
+    background-color: #6E8898;
+    border-radius: 3%;
+    box-shadow: 10px 10px 5px black;
+
+
+}
+#logForm{
+    display: none;
 }
 input{
     width: 100%;
 }
+a{
+    margin-right: auto;
+     padding: 14px 16px;
 
-#login {
-    display: none;
 }
 
-/* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
+p {
+    color: white;
+}
+span {
+    color: lightblue;
+}
+h3{
+    color: white;
+    text-align: center;
+}
+div.results{
+    color: black;
+}
+.footer{
+    text-align: center;
+}
 
 /* Final TODO Challenge 5 */

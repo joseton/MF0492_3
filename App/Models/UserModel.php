@@ -14,6 +14,9 @@ class UserModel extends Model{
 
     // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
+
+
+
     // Final TODO Challenge 5
 
     // public function registrar($params){
