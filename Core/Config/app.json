@@ -4,6 +4,7 @@
         "namespace": "Core\\"
     },
 
+
     "db":{
         "host": "localhost",
         "dbname": "mvc_database",

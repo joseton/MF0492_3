@@ -4,6 +4,16 @@
         "action": "index"
     },
 
+    "home": {
+         "controller": "HomeController",
+         "action": "index"
+     },
+
+    "database": {
+        "controller": "HomeController",
+        "action": "conexionDB"
+    },
+
     "auth": {
         "controller": "UserController",
         "action": "index"

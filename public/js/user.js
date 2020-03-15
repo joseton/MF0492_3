@@ -15,13 +15,12 @@ $( document ).ready(function() {
     });
 
 
-
     $("#registre").submit(function(event){
         event.preventDefault();
 
         $.ajax({
-            // config. de datos de envío
-            type: 'post',
+            // config. de datos de envío REGISTRO
+            type: 'POST',
             url: 'auth/register',
             dataType: 'json',
             data: $("#registre").serialize(),
@@ -30,24 +29,43 @@ $( document ).ready(function() {
                 $(".results").html(res);
             },
             beforeSend: function(){
-                $(".results").html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>' + "<br>" + "Registrando...");
+                $(".results").html('<i class="fas fa-spinner"></i>' + "<br>" + "Registrando......");
             },
             error: function(){
                 $(".results").html('*Error en la comunicación con el servidor');
+
             }
         });
 
-    });
 
+        // $.ajax({
+        //     // config. de datos de envío LOGIN
+        //     type: 'POST',
+        //     url: 'auth/login',
+        //     dataType: 'json',
+        //     data: $("#login").serialize(),
+        //     // control de acciones en el envio y respuesta del server
+        //     success: function(){
+        //         $(".results").html();
+        //     },
+        //     beforeSend: function(){
+        //         $(".results").html('<i class="fas fa-spinner"></i>' + "<br>" + "Cargando......");
+        //     },
+        //     error: function(){
+        //         $(".results").html('*Error en la comunicación con el servidor');
+        //     }
+        // });
+
+
+    });
+});
     // Final TODO Challenge 5
 
 
-    // $("#regForm").submit(function( event ) {
-    //     var pass = $('#pass').val();
-    //     var pass2 = $('#pass2').val();
-    //     if(pass != pass2){
+    //
+    // $("#registre").submit(function( event ) {
+    //     var pass = $('#reg_pass').val();
+    //     var pass2 = $('#reg_r_pass').val();
+    //     if(reg_pass != reg_r_pass){
     //         event.preventDefault();
-    //         $('.results').html('Las contraseñas no coinciden!');
     //     }
-    // });
-});

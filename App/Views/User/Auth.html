@@ -40,9 +40,9 @@
      <span class="error"></span>
      <input type="submit" value="Registrar" name="botonreg">
      <p>¿Ya estás registrado? Haz click <span id="registrespan" onclick="">AQUÍ</span></p>
-     <!-- <div id="dataResp_reg" name="dataResp_reg"></div> -->
+     <div id="dataResp_reg" name="dataResp_reg"></div>
      <!-- MENSAJE.. -->
-     <div class="results"></div>
+     <div class="results">{{ mensaje }}</div>
  </form>
 
  <form id="login" name="login" novalidate>
@@ -55,7 +55,7 @@
      <span class="error"></span>
      <input type="submit" value="Entrar" name="botonlog">
      <p>¿No tienes cuenta? Haz clic <span id="loginspan" onclick="">AQUÍ</span></p>
-     <!-- <div id="dataResp_log" name="dataResp_log"></div> -->
+     <div id="dataResp_log" name="dataResp_log"></div>
      <!-- MENSAJE.. -->
      <div class="results">{{ mensaje }}</div>
  </form>

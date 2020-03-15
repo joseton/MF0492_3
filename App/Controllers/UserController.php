@@ -22,11 +22,11 @@ class UserController extends Controller{
         public function registroAction($params){
             // sleep — Retrasar la ejecución
             sleep(3);
-                    $email = $params['reg_email'];
-                    $pass = $params['reg_pass'];
-                    $repeatpass = $params['reg_r_pass'];
+                    $email = $params['email'];
+                    $pass = $params['pass'];
+                    // $repeatpass = $params['reg_r_pass'];
 
-                        
+
                     // val sólo Email_______________________________________________
                     // htmlspecialchars — Convierte caracteres especiales en entidades HTML
                     $email = htmlspecialchars($email);
@@ -39,9 +39,6 @@ class UserController extends Controller{
                     if(empty($email)){
                         $message = 'El email esta vacío';
                         echo json_encode ($message);
-
-
-
                     // filter_var — Filtra una variable con el filtro que se indique
                     // FILTER_VALIDATE_EMAIL - Valida una dirección de correo electrónico.
                     }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -52,7 +49,8 @@ class UserController extends Controller{
 
                         $model = new UserModel;
                         $result = $model->registrar($params);
-
+                        // echo($model);
+                        // echo($result);
 
                         if($result){
                             echo json_encode ('Registro ok');
@@ -66,13 +64,53 @@ class UserController extends Controller{
 
 
 
+
+                // public function loginAction($params){
+                //     // sleep — Retrasar la ejecución
+                //     sleep(3);
+                //             $email = $params['email'];
+                //             $pass = $params['pass'];
+                //             // $repeatpass = $params['reg_r_pass'];
+                //
+                //
+                //             // val sólo Email_______________________________________________
+                //             // htmlspecialchars — Convierte caracteres especiales en entidades HTML
+                //             $email = htmlspecialchars($email);
+                //             // stripslashes — Quita las barras de un string con comillas escapadas
+                //             $email = stripslashes($email);
+                //             // trim — Elimina espacio en blanco (u otro tipo de caracteres) del inicio y el final de la cadena
+                //             $email = trim($email);
+                //
+                //             // empty  — Determina si una variable está vacía
+                //             if(empty($email)){
+                //                 $message = 'El email esta vacío';
+                //                 echo json_encode ($message);
+                //             // filter_var — Filtra una variable con el filtro que se indique
+                //             // FILTER_VALIDATE_EMAIL - Valida una dirección de correo electrónico.
+                //             }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                //                 $message = 'El email no es correcto';
+                //                 echo json_encode ($message);
+                //
+                //             }else{
+                //
+                //                 $model = new UserModel;
+                //                 $result = $model->registrar($params);
+                //                 // echo($model);
+                //                 // echo($result);
+                //
+                //                 if($result){
+                //                     echo json_encode ('Registro ok');
+                //                 }else{
+                //                     $message = 'Error en el registro';
+                //                     echo json_encode ($message);
+                //
+                //                 }
+                //             }
+                //         }
+
+
         }
-        //
-        // public function loginAction($params){
-        //     echo "string login action";
-        //
-        //
-        // }
+
 
 
 

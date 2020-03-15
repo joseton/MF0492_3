@@ -8,6 +8,7 @@ use App\Models\HomeModel;
 class HomeController extends Controller{
 
     public function indexAction(){
+        // Controller::renderView('Auth.html', [] ,true);
         View::renderTwig('Auth.html');
     }
 

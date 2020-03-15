@@ -6,4 +6,5 @@ create table users(
     id int primary key auto_increment,
     email varchar(45),
     pass varchar(45)
+
 );
