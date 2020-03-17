@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Registro{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="public/css/forms.css">
+{% endblock %}
+
+{% block body %}
+<form id="regForm">
+
+    <h3>REGISTRO</h3>
+    <input type="email" name="emailr" placeholder="Email">
+    <input type="password" name="passr" placeholder="Contraseña" id="passr">
+    <input type="password" name="passr2" placeholder="Repite contraseña" id="passr2">
+    <input type="submit" name="registrar" value="Registrar" style= "background-color:darkgrey;">
+    <span>¿Ya estás registrado? </span><span class="toggle">Clica aquí</span>
+    <div class="resultsr"></div>
+</form>
+<form id="logForm">
+    <h3>LOGIN</h3>
+    <input type="email" name="emaill" placeholder="Email">
+    <input type="password" name="passl" placeholder="Contraseña" id="passl">
+    <input type="submit" name="entrar" value="Entrar" style= "background-color:darkgrey;">
+    <span>¿Aún no estás registrado? </span><span class="toggle">Clica aquí</span>
+    <div class="resultsl"></div>
+</form>
+{% endblock %}
