@@ -8,8 +8,8 @@
         "host": "localhost",
         "dbname": "mvc_database",
         "user": "root",
-        "pass": "",
-        "port": "3306"
+        "pass": "root",
+        "port": "8889"
     },
 
     "show_error":{

@@ -3,24 +3,24 @@
 {% block title %}Inicio{% endblock %}
 
 {% block body %}
-
-<h3>Formulario de registro</h3>
-<form id="formRegistro" novalidate>
-    <input type="text" name="usuario" placeholder="Nombre de usuario">
-    <input type="password" name="pass" placeholder="Contraseña">
-    <input type="password" name="pass2" placeholder="Repite contraseña">
-    <input type="submit" value="registrar">
-    <span id="fr" onclick="formRegistro()">Ya eres usuario</span>
-    <div class="mensajePantalla"></div>
-</form>
-<form id="formAcceso" novalidate>
-    <input type="text" name="usuario" placeholder="Nombre de usuario">
-    <input type="password" name="pass" placeholder="Contraseña">
-    <input type="submit" value="acceder">
-    <span id="fa" onclick="formAcceso()">Nueva cuenta</span>
-    <div class="mensajePantalla"></div>
-</form>
-
-
-
+    <div class="login">
+        <div class="login-screen">
+            <h1 class="titulo">Acceso</h1>
+            <form id="formRegistro" class="login-form">
+                <input type="text" name="usuario" placeholder="Nombre de usuario" autofocus="autofocus" class="mb-10">
+                <input type="password" name="pass" placeholder="Contraseña" class="mb-10">
+                <input type="password" name="pass2" placeholder="Repite contraseña" class="mb-10">
+                <div class="mensajePantalla"></div>
+                <input type="submit" value="registrar" class="btn">
+                <span id="fr" onclick="formRegistro()" class="enlace">¿Ya eres usuario?</span>
+            </form>
+            <form id="formAcceso" class="login-form">
+                <input type="text" name="usuario" placeholder="Nombre de usuario" class="mb-10">
+                <input type="password" name="pass" placeholder="Contraseña" class="mb-10">
+                <div class="mensajePantalla"></div>
+                <input type="submit" value="acceder" class="btn">
+                <span id="fa" onclick="formAcceso()" class="enlace">Crear nueva cuenta</span>
+            </form>
+        </div>
+    </div>
 {% endblock %}
