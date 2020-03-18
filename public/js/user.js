@@ -50,6 +50,7 @@ $( document ).ready(function() {
                 success: function(response){
                     if(response == 'ok'){
                     window.open("home");
+                    close();
                     }else{$(".resultado").html(response);}
                 },
                 beforeSend: function(){
