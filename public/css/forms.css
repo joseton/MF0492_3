@@ -90,7 +90,7 @@ nav ul li{
     cursor: none;
 }
 
-.results{
+.resultslog, .resultsreg{
     font-style: italic;
     color: red;
     font-size: 125%;

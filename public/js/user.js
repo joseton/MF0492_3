@@ -6,12 +6,18 @@ $( document ).ready(function() {
     $("#registrespan").click(function(){
       $("#login").toggle();
       $("#registre").toggle();
+      $(".results").html("");
+      $("#login").trigger("reset");
+      $("#registre").trigger("reset");
 
     });
 
     $("#loginspan").click(function(){
         $("#registre").toggle();
         $("#login").toggle();
+        $(".results").html("");
+        $("#registre").trigger("reset");
+        $("#login").trigger("reset");
     });
 
 
@@ -29,43 +35,34 @@ $( document ).ready(function() {
                 $(".results").html(res);
             },
             beforeSend: function(){
-                $(".results").html('<i class="fas fa-spinner"></i>' + "<br>" + "Registrando......");
+                $(".resultsreg").html("<i class='fas fa-spinner'></i>"+"<br>"+"Registrando......");
             },
             error: function(){
-                $(".results").html('*Error en la comunicación con el servidor');
+                $(".resultsreg").html('*Error en la comunicación con el servidor');
 
             }
         });
 
 
-        // $.ajax({
-        //     // config. de datos de envío LOGIN
-        //     type: 'POST',
-        //     url: 'auth/login',
-        //     dataType: 'json',
-        //     data: $("#login").serialize(),
-        //     // control de acciones en el envio y respuesta del server
-        //     success: function(){
-        //         $(".results").html();
-        //     },
-        //     beforeSend: function(){
-        //         $(".results").html('<i class="fas fa-spinner"></i>' + "<br>" + "Cargando......");
-        //     },
-        //     error: function(){
-        //         $(".results").html('*Error en la comunicación con el servidor');
-        //     }
-        // });
+        $.ajax({
+            // config. de datos de envío LOGIN
+            type: 'POST',
+            url: 'auth/login',
+            dataType: 'json',
+            data: $("#login").serialize(),
+            // control de acciones en el envio y respuesta del server
+            success: function(resp){
+                $(".results").html(resp);
+            },
+            beforeSend: function(){
+                $(".resultslog").html('<i class="fas fa-spinner"></i>' + "<br>" + "Logeándose......");
+            },
+            error: function(){
+                $(".resultslog").html('*Error en la comunicación con el servidor');
+            }
+        });
 
 
     });
 });
     // Final TODO Challenge 5
-
-
-    //
-    // $("#registre").submit(function( event ) {
-    //     var pass = $('#reg_pass').val();
-    //     var pass2 = $('#reg_r_pass').val();
-    //     if(reg_pass != reg_r_pass){
-    //         event.preventDefault();
-    //     }
