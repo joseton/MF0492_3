@@ -11,80 +11,99 @@ class UserController extends Controller{
 
     public function indexAction($params){
         // var_dump($params); Auth
-        View::renderTwig('User/auth.html');
+        if(isset($_SESSION['email'])){View::renderTwig('Home/home.html');
+        }else{View::renderTwig('User/auth.html');}
     }
+
 
     public function registerAction($params){
         // Test
         // var_dump($params);
-        sleep(2);
+        if(isset($_POST)){
 
-        $email = $params['email'];
-        $pass = $params['pass'];
-        // val sólo Email
-        $email = htmlspecialchars($email);
-        $email = stripslashes($email);
-        $email = trim($email);
+            sleep(1);
 
-        if(empty($email)){
-            echo json_encode('El email esta vacío');
-        }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $message = 'El email no es correcto';
-        }else{
+            $email = $params['email'];
+            $pass = $params['pass'];
+            $pass2 = $params['pass2'];
+            // validando sólo Email
+            $email = htmlspecialchars($email);
+            $email = stripslashes($email);
+            $email = trim($email);
 
-            $model = new UserModel;
-            $result = $model->registrar($params);
-            //TEST
-            // var_dump($params);
-            if($result){
-                echo json_encode('Registro OK');
+            // Validando la estructura del password
+            $uppercase = preg_match('@[A-Z]@', $pass);
+            $lowercase = preg_match('@[a-z]@', $pass);
+            $number    = preg_match('@[0-9]@', $pass);
+            $specialChars = preg_match('@[^\w]@', $pass);
+
+            if(empty($email)){
+                echo json_encode('El email esta vacío');
+            }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                echo json_encode('El email no es correcto');
+            }else if($pass != $pass2){
+                echo json_encode('La contraseña no coincide');
             }else{
-                echo json_encode('Error en el registro');
-            }
 
-        }
+                $model = new UserModel;
+
+                $result = $model->checkEmail($params);
+                if($result == 0){
+                    echo json_encode('El email introducido ya existe');
+                }else{
+                $result = $model->registrar($params);
+                if($result == 1){
+                    echo json_encode('Se ha registrado correctamente');
+                }else{
+                    echo json_encode('Error en el registro');
+                }
+                }
         // View::renderTwig('User/auth.html', array('mensaje'=>$message));
+        }
     }
-
+}
 
     public function loginAction($params){
         // Test
         // var_dump($params);
-        sleep(1);
+        if(isset($_POST)){
 
-        $email = $params['email'];
-        $pass = $params['pass'];
-        // val sólo Email
-        $email = htmlspecialchars($email);
-        $email = stripslashes($email);
-        $email = trim($email);
+            sleep(1);
 
-        if(empty($email)){
-            echo json_encode('El email esta vacío');
-        }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $message = 'El email no es correcto';
-        }else{
+            $email = $params['email3'];
+            $pass = $params['pass3'];
+            // val sólo Email
+            $email = htmlspecialchars($email);
+            $email = stripslashes($email);
+            $email = trim($email);
 
-            $model = new UserModel;
-            $result = $model->login($params);
-            //TEST
-            // var_dump($params);
-            if($result){
-                echo json_encode('Has entrado');
+            if(empty($email)){
+                echo json_encode('El email esta vacío');
+            }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                echo json_encode('El email no es correcto');
             }else{
-                echo json_encode('Usuario o contraseña incorrecta');
-            }
 
-        }
-        // View::renderTwig('User/auth.html', array('mensaje'=>$message));
+                $model = new UserModel;
+                $result = $model->login($params);
+                //TEST
+                // var_dump($params);
+                if($result){
+                    $_SESSION['email']=$email;
+                    echo json_encode('ok');
+                }else{
+                    echo json_encode('Usuario o contraseña incorrecta');
+                }
+            }
+            // View::renderTwig('User/auth.html', array('mensaje'=>$message));
+        }else{View::renderTwig('auth');}
+
+
+        // Final TODO Challenge 5
+
     }
 
-
-
-
-
-    // Final TODO Challenge 5
-
-
-
+    public function cerrarSesionAction(){
+        session_destroy();
+        View::renderTwig('User/auth.html');
+    }
 }

@@ -7,18 +7,57 @@
 body{
     background-color: #34495e;
 }
-h3{
+nav{
+    width: 100%;
+    position: relative;
+    border-bottom: solid;
+    border-radius: 5px;
+    border-color: white;
+
+
+}
+ul{
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 50%;
+    transform: translate(-5%);
+
+}
+li{
+    float: left;
+    font-size: 18px;
+    text-align: center;
+
+
+
+}
+li a{
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 2px;
+}
+a:hover{
+    opacity: 0.5;
+}
+.titulo{
     font-size: 40px;
     text-align: center;
     color: white;
+    position: relative;
 }
 form{
+
    width: 350px;
    border-style: solid;
    border-radius: 5px;
    border-color: white;
    background-color: #34495e;
    margin: auto;
+   position: relative;
 
 }
 form h3{
@@ -39,6 +78,7 @@ p{
 }
 a{
     text-decoration: none;
+    color: blue;
 }
 .submit{
     background-color: #28cd91;
@@ -58,7 +98,17 @@ a{
 #loginForm{
     display: none;
 }
+.salir{
+    color: white;
+    position: absolute;
+    top: 22px;
+    right: 20px;
+}
+.salir:hover{
+    opacity: 0.5;
+    cursor: pointer;
 
+}
 
 
 

@@ -8,7 +8,8 @@ use App\Models\HomeModel;
 class HomeController extends Controller{
 
     public function indexAction(){
-        View::renderTwig('Home/home.html');
+        if(isset($_SESSION['email'])){View::renderTwig('Home/home.html');
+        }else{View::renderTwig('User/auth.html');}
     }
 
 }

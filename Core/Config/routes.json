@@ -22,6 +22,10 @@
     "auth/login": {
         "controller": "UserController",
         "action": "login"
+    },
+    "cerrarSesion": {
+        "controller": "UserController",
+        "action": "cerrarSesion"
     }
 
 }

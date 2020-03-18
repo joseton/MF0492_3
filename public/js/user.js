@@ -29,6 +29,7 @@ $( document ).ready(function() {
                 },
                 beforeSend: function(){
                     $(".resultado").html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>');
+                    $(".resultado").html("Registrando...");
                 },
                 error: function(){
                     $(".resultado").html('Error en la comunicación con el servidor');
@@ -47,12 +48,13 @@ $( document ).ready(function() {
                 data: $("#loginForm").serialize(),
                 // control de acciones en el envio y respuesta del server
                 success: function(response){
-                    console.log(response);
-                    console.log("Success en Ajax");
-                    $(".resultado").html(response);
+                    if(response == 'ok'){
+                    window.open("home");
+                    }else{$(".resultado").html(response);}
                 },
                 beforeSend: function(){
-                    $(".resultado").html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>');
+                    // $(".resultado").html('<i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>');
+                    $(".resultado").html('Validando...');
                 },
                 error: function(){
                     $(".resultado").html('Error en la comunicación con el servidor');

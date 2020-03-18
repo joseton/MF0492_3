@@ -1,4 +1,5 @@
 <?php
+session_start(); //Arrancamos la sesión, de esta manera se cargará en todas nuestra páginas
 // Carga del sistema de Autoloading
 // autoload.php: Carga a través del "composer" todas las clases necesarias de 'requires' ó 'includes' para poder instanciar desde otro archivo
 require dirname(__DIR__) . '/vendor/autoload.php';
