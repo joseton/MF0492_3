@@ -10,9 +10,12 @@ class UserController extends Controller{
   // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
   public function indexAction($params){
-    View::renderTwig('User/auth.html');
+    if(isset($_SESSION['email'])){View::renderTwig('Home/home.html');
+    }else{View::renderTwig('User/auth.html');}
   }
+
   public function registerAction($params){
+    if(isset($_POST)){
 
     sleep(1);
 
@@ -47,9 +50,12 @@ class UserController extends Controller{
       }
     }
     }
-  }
+    }
+}
 
   public function loginAction($params){
+
+    if(isset($_POST)){
 
     sleep(1);
 
@@ -72,6 +78,7 @@ class UserController extends Controller{
       echo json_encode('Login ok');
     }else{
       echo json_encode('Error en el login');
+    }
     }
     }
   }

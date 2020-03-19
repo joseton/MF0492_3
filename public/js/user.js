@@ -15,7 +15,7 @@ $( document ).ready(function() {
       data: $("#regForm").serialize(),
       // control de acciones en el envio y respuesta del server
       success: function(dataResp){
-        console.log(response);
+        console.log(dataResp);
         console.log("Ok en Ajax");
         $(".resultsr").html(dataResp);
       },
