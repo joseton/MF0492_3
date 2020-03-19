@@ -19,7 +19,7 @@ class UserModel extends Model{
 
     public function registrar($params){
 
-       $email = $params['usuario'];
+       $email = $params['email'];
        $sql = "select * from users where email=:email";
        $stmt = $this->db->prepare($sql);
        $stmt->bindParam(':email', $email);
@@ -33,7 +33,7 @@ class UserModel extends Model{
            $stmt = $this->db->prepare($sql);
 
            $id = null;
-           $email = $params['usuario'];
+           $email = $params['email'];
            $pass = $params['pass'];
 
            $stmt->bindParam(':id', $id);
@@ -57,7 +57,7 @@ class UserModel extends Model{
 
              $stmt = $this->db->prepare($sql);
 
-             $email = $params['usuario'];
+             $email = $params['email'];
              $pass = $params['pass'];
 
              $stmt->bindParam(':email', $email);

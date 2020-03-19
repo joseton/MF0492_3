@@ -32,7 +32,7 @@ $( document ).ready(function() {
             data: $("#registre").serialize(),
             // control de acciones en el envio y respuesta del server
             success: function(res){
-                $(".results").html(res);
+                $(".resultsreg").html(res);
             },
             beforeSend: function(){
                 $(".resultsreg").html("<i class='fas fa-spinner'></i>"+"<br>"+"Registrando......");
@@ -44,25 +44,32 @@ $( document ).ready(function() {
         });
 
 
-        $.ajax({
-            // config. de datos de envío LOGIN
-            type: 'POST',
-            url: 'auth/login',
-            dataType: 'json',
-            data: $("#login").serialize(),
-            // control de acciones en el envio y respuesta del server
-            success: function(resp){
-                $(".results").html(resp);
-            },
-            beforeSend: function(){
-                $(".resultslog").html('<i class="fas fa-spinner"></i>' + "<br>" + "Logeándose......");
-            },
-            error: function(){
-                $(".resultslog").html('*Error en la comunicación con el servidor');
-            }
-        });
 
 
     });
+
+    $("#login").submit(function(event){
+        event.preventDefault();
+
+    $.ajax({
+        // config. de datos de envío LOGIN
+        type: 'POST',
+        url: 'auth/login',
+        dataType: 'json',
+        data: $("#login").serialize(),
+        // control de acciones en el envio y respuesta del server
+        success: function(resp){
+            $(".resultslog").html(resp);
+        },
+        beforeSend: function(){
+            $(".resultslog").html('<i class="fas fa-spinner"></i>' + "<br>" + "Logeándose......");
+        },
+        error: function(){
+            $(".resultslog").html('*Error en la comunicación con el servidor');
+        }
+    });
+
+});
+
 });
     // Final TODO Challenge 5
