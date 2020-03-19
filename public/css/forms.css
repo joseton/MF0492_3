@@ -11,21 +11,30 @@ form{
     padding: 20px;
 }
 h3{
-    /* font-family: "Roboto"; */
     color: grey;
     text-align: center;
 }
 input{
     width: 100%;
-} */
     margin: 2px auto;
     border-radius: 2px;
     border: 1px solid lightgrey;
-    color: lightgrey;
 }
 input div{
     text-align: center;
     color: red;
+}
+input [type="submit"]{
+    margin: 0 30px !important;
+    color: white;
+    background-color:darkgrey;
+    outline-style: none;
+}
+.centermsg{
+    width: 75%;
+    margin:auto;
+    align-items: center;
+    font-size: 0.95em;
 }
 span{
     text-align: center;

@@ -13,48 +13,67 @@ class UserController extends Controller{
     View::renderTwig('User/auth.html');
   }
   public function registerAction($params){
-    $emailr = $params['emailr'];
-    $passr = $params['passr'];
-    $passr2 = $params['passr2'];
-    $emailr = htmlspecialchars($emailr);
-    $emailr = stripslashes($emailr);
-    $emailr = trim($emailr);
-    if(empty($emailr)){
-      $message = 'El email esta vacío';
-    }else if(!filter_var($emailr, FILTER_VALIDATE_EMAIL)){
-      $message = 'El email no es correcto';
-    }else if($passr != $passr2){
-      $message = 'Las contraseñas no coinciden';
+
+    sleep(1);
+
+    $email = $params['emailr'];
+    $pass = $params['passr'];
+    $pass2 = $params['passr2'];
+    $email = htmlspecialchars($email);
+    $email = stripslashes($email);
+    $email = trim($email);
+
+      if(empty($email)){
+        echo json_encode('El email esta vacío');
+      }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        echo json_encode('El email no es correcto');
+      }else if($pass==""){
+        echo json_encode('Debes introducir una contraseña');
+      }else if($pass != $pass2){
+        echo json_encode('Las contraseñas no coinciden');
+      }else{
+
+    $result = $model->checkEmail($params);
+      if($result == 0){
+        echo json_encode('El email introducido ya existe');
     }else{
-      $model = new UserModel;
-      $result = $model->registrar($params);
-      if($result){
+
+    $model = new UserModel;
+    $result = $model->register($params);
+      if($result == 1){
         echo json_encode('Registro ok');
       }else{
         echo json_encode('Error en el registro');
       }
     }
+    }
   }
-  public function loginAction($params){
-    $emaill = $params['emaill'];
-    $passl = $params['passl'];
-    $emaill = htmlspecialchars($emaill);
-    $emaill = stripslashes($emaill);
-    $emaill = trim($emaill);
 
-  if(empty($emaill)){
-    $message = 'El email esta vacío';
-  }else if(!filter_var($emaill, FILTER_VALIDATE_EMAIL)){
-    $message = 'El email no es correcto';
-  }else{
+  public function loginAction($params){
+
+    sleep(1);
+
+    $email = $params['emaill'];
+    $pass = $params['passl'];
+    $email = htmlspecialchars($email);
+    $email = stripslashes($email);
+    $email = trim($email);
+
+      if(empty($email)){
+        echo json_encode('El email esta vacío');
+      }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        echo json_encode('El email no es correcto');
+      }else{
+
     $model = new UserModel;
-    $result = $model->entrar($params);
+    $result = $model->login($params);
     if($result){
+      $_SESSION['emaill']=$email;
       echo json_encode('Login ok');
     }else{
       echo json_encode('Error en el login');
     }
-  }
+    }
   }
 }
 // Final TODO Challenge 5

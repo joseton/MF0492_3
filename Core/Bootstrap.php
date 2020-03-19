@@ -2,7 +2,7 @@
 // Carga del sistema de Autoloading
 // autoload.php: Carga a través del "composer" todas las clases necesarias de 'requires' ó 'includes' para poder instanciar desde otro archivo
 require dirname(__DIR__) . '/vendor/autoload.php';
-
+session_start();
 // Activación del reporte de todos los errores y mensajes informativos
 error_reporting(E_ALL);
 // pendiente

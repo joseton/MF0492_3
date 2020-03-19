@@ -15,13 +15,15 @@ $( document ).ready(function() {
       data: $("#regForm").serialize(),
       // control de acciones en el envio y respuesta del server
       success: function(dataResp){
+        console.log(response);
+        console.log("Ok en Ajax");
         $(".resultsr").html(dataResp);
       },
       beforeSend: function(){
-        $(".resultsr").html('...espera un momento...');
+        $(".resultsr").html("<i class='fa fa-spinner'></i> Registrando...");
       },
       error: function(){
-        $(".resultsr").html('Error en el registro');
+        $(".resultsr").html('Error en la comunicación con el servidor');
       }
     });
 
@@ -38,7 +40,7 @@ $( document ).ready(function() {
         $(".resultsl").html(dataResp);
       },
       beforeSend: function(){
-        $(".resultsl").html('...espera un momento...');
+      $(".resultsl").html("<i class='fa fa-spinner'></i> Registrando...");
       },
       error: function(){
         $(".resultsl").html('Error en el login');
