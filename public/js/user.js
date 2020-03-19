@@ -4,10 +4,8 @@ $(document).ready(function() {
     $( ".toggle" ).click(function() {
         $("#logForm").toggle();
         $("#regForm").toggle();
+
     });
-
-
-
 
 
     $("#regForm").submit(function(event) {
@@ -31,7 +29,9 @@ $(document).ready(function() {
             }
         });
 
-        $("logForm").submit(function(event) {
+    });
+
+        $("#logForm").submit(function(event) {
             event.preventDefault();
             // método AJAX de jQuery
             $.ajax({
@@ -42,20 +42,20 @@ $(document).ready(function() {
                 data: $("#logForm").serialize(),
                 // control de acciones en el envio y respuesta del server
                 success: function(res){
-                    $(".results").html(res);
+                    $(".resultslog").html(res);
                 },
                 beforeSend: function(){
-                    $(".results").html('procesando');
+                    $(".resultslog").html('procesando');
                 },
                 error: function(){
-                    $(".results").html('LogIn Error');
+                    $(".resultslog").html('LogIn Error');
                 }
             });
         });
 
 });
 
-});
+
 
 /*
 $(."toggle").click()

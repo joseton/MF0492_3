@@ -14,12 +14,14 @@ body {
     line-height: 30px;
     background: #2E5266;
     margin: 0%;
+    text-align: center;
 }
 
 .nav{
     background-color: #9FB1BC;
     position: relative;
 }
+
 ul {
     margin: 0%!important;
     padding-top: 0% !important;
@@ -27,40 +29,68 @@ ul {
 }
 ul li {
     display: inline;
-
-
 }
+
 ul li a {
 
     color: white;
     text-decoration: none;
     text-align: center;
-    padding: 14px 16px;
+    padding: -20px 84px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 15px;
 
 }
 
 form{
     border: 2px;
     width: 300px;
-    margin: 20px;
+    margin: 100px;
     padding: 20px;
-    margin-left: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
     background-color: #6E8898;
     border-radius: 3%;
     box-shadow: 10px 10px 5px black;
+    display: inline-block;
 
 
 }
 #logForm{
     display: none;
 }
+
 input{
     width: 100%;
+
 }
+
+input #go {
+     background-color: #E2C044;
+     color: #ffffff;
+     padding: 20px 40px;
+     height: 20px;
+
+   }
+
+   input#go:hover {
+     background-color: #ffffff;
+     color: #4c9ed9;
+   }
+
+
+.botton {
+    color:white;
+    border-radius: 2px;
+    border: 0px solid;
+    height: 20px;
+    width: 260px;
+    color: black;
+}
+
 a{
-    margin-right: auto;
+    margin-right: 47px;
      padding: 14px 16px;
 
 }
@@ -68,16 +98,24 @@ a{
 p {
     color: white;
 }
+
 span {
     color: lightblue;
 }
+
 h3{
     color: white;
     text-align: center;
 }
+h2{
+    color: white;
+    text-align: center;
+}
+
 div.results{
     color: black;
 }
+
 .footer{
     text-align: center;
 }

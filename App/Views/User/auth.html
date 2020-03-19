@@ -7,25 +7,25 @@
 
 
 <form  id="regForm">
-
-    <input type="text" name="email" placeholder="Email">
-    <input type="password" name="pass" placeholder="Contraseña" id="passreg">
-    <input type="password" name="pass2" placeholder="Repite contraseña" id="passreg2">
-    <input type="submit" name="registrar" value="Registrar">
+    <h2>Registro</h2>
+    <input class="botton" type="text" name="email" placeholder="Email">
+    <input class="botton" type="password" name="pass" placeholder="Contraseña" id="passreg">
+    <input class="botton" type="password" name="pass2" placeholder="Repite contraseña" id="passreg2">
+    <input class="botton" id="go" type="submit" name="registrar" value="Registrar">
     <div class="results"></div>
     <p>¿Are you allready registered <span class="toggle">HERE</span></p>
 </form>
 
 <form  id="logForm">
-
-    <input type="text" name="email" placeholder="Email">
-    <input type="password" name="pass" placeholder="Contraseña" id="passlog">
-    <input type="submit" name="registrar" value="login">
-    <div class="results"></div>
+    <h2>LogIn</h2>
+    <input class="botton" type="text" name="emailog" placeholder="Email">
+    <input class="botton" type="password" name="passlog" placeholder="Contraseña" id="passlog">
+    <input class="botton" id="golog" type="submit" name="LogIn" value="login">
+    <div class="resultslog"></div>
     <p>Don't Have an Account? Click Here <span class="toggle">HERE</span></p>
 </form>
 
 <footer>
-        <p class='footer'>© Mateu's Form 2020</p>
+        <p class='footer'>© Mateu's Form 2020 </p>
 </footer>
 {% endblock %}
