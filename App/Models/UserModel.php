@@ -33,8 +33,15 @@ class UserModel extends Model{
     }
 
     public function login($params){
-      $sql = "select * from users where email = $params['emaill'] and pass = $params['passl']";
-      if($stmt->rowCount($sql) == 1){
+      $sql = "select * from users where email = :email and pass = :pass";
+      $stmt = $this->db->prepare($sql);
+      $email = $params['emaill'];
+      $pass = $params['passl'];
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':pass', $pass);
+
+      $stmt->execute();
+      if($stmt->rowCount() == 1){
         return true;
       }else{
         return false;
@@ -45,12 +52,12 @@ class UserModel extends Model{
         $sql = "select * from users where email=:email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':email', $email);
-        $email = $params['email'];
+        $email = $params['emailr'];
 
         $stmt->execute();
         $rows = $stmt->rowCount();
 
         if($rows == 1){return 0;}
-        else{return 9;}
+        else{return 2;}
     }
   }

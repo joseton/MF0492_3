@@ -36,12 +36,12 @@ class UserController extends Controller{
         echo json_encode('Las contraseñas no coinciden');
       }else{
 
+    $model = new UserModel();
     $result = $model->checkEmail($params);
       if($result == 0){
         echo json_encode('El email introducido ya existe');
     }else{
 
-    $model = new UserModel;
     $result = $model->register($params);
       if($result == 1){
         echo json_encode('Registro ok');
