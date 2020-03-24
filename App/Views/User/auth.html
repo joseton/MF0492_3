@@ -4,36 +4,36 @@
 
 {% block body %}
 <hr>
-<h3>Soy la página de REGISTRO</h3>
+<h3></h3>
 
 
-<form action="register" method="post" id="regForm">
+<form id="regForm">
     <h1>REGISTRO</h1>
-    <label for="reg_email">Email</label>
-            <input type="email" id="reg_email" name="reg_email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-            <span class="error"></span>
-            <label for="reg_pass">Contraseña</label>
-            <input type="password" id="reg_pass" name="reg_pass" minlength="6">
-            <span class="error"></span>
-            <label for="reg_r_pass">Repetir contraseña</label>
-            <input type="password"  id="reg_r_pass" name="reg_r_pass">
-            <span class="error"></span>
-            <input type="submit" value="Registrar">
-            <p>¿Ya estás registrado? Haz clic <span class="aqui" >AQUÍ</span></p>
-            <div id="dataResp_registro"></div>
+    <label for="email">Email</label>
+    <input type="email"  name="email" >
+    <label for="pass">Contraseña</label>
+    <input type="password"  name="pass" >
+    <label for="pass2">Repetir contraseña</label>
+    <input type="password"  name="pass2">
+    <input type="submit" name= "registrar" value="Registrar">
+    <p>¿Ya estás registrado? Haz clic <span class="aqui" >AQUÍ</span></p>
+      <!-- <div id="dataResp_registro"></div> -->
+    <div class="results"> </div>
+
+
+
         </form>
 </form>
 
-<form action="login" method="post" id="logForm">
+<form id="logForm">
     <h1>LOGIN</h1>
-    <label for="lg_email">Email</label>
-            <input type="email" id="lg_email" name="lg_email">
-            <span class="error"></span>
-            <label for="lg_pass">Contraseña</label>
-            <input type="password" id="lg_pass" name="lg_pass">
-            <span class="error"></span>
-            <input type="button" name="lg_boton" value="Entrar">
-            <p>¿No tienes cuenta? Haz clic <span class="aqui">AQUÍ</span></p>
-            <div id="dataResp_login"></div>
+    <label for="email">Email</label>
+    <input type="email"  name="email">
+    <label for="pass">Contraseña</label>
+    <input type="password"  name="pass">
+    <input type="submit" name="entrar" value="Entrar">
+    <p>¿No tienes cuenta? Haz clic <span class="aqui">AQUÍ</span></p>
+    <!-- <div id="dataResp_login"></div> -->
+    <div class="resultslog"> </div>
 </form>
 {% endblock %}

@@ -5,9 +5,23 @@ $( document ).ready(function() {
     $(".aqui").click(function(){
         $("#logForm").toggle();
         $("#regForm").toggle();
+        $/".results").html("");
+        $("#logForm").ttrigger("reset");
+        $("#regForm").ttrigger("reset");
 
     });
-    $("regForm").submit(function(event) {
+    $(".aqui").click(function(){
+       $("#regForm").toggle();
+        $("#logForm").toggle();
+        $(".results").html("");
+        $("#regForm").ttrigger("reset");
+        $("#logForm").ttrigger("reset");
+
+
+    });
+
+
+    $("#regForm").submit(function(event) {
         event.preventDefault();
        // método AJAX de jQuery
        $.ajax({
@@ -17,19 +31,20 @@ $( document ).ready(function() {
            dataType: 'json',
            data: $("#regForm").serialize(),
            // control de acciones en el envio y respuesta del server
-           success: function(dataResp){
-               $("$message").html(dataResp);
+           success: function(res){
+               $("dataResp_registro").html(res);
            },
            beforeSend: function(){
-               $("$message").html('one moment please');
+               $("dataResp_registro").html('one moment please');
            },
            error: function(){
-               $("#dataResp").html('Error en la comunicación con el servidor');
+               $("dataResp_registro").html('Error en la comunicación con el servidor');
            }
        });
 
    });
-   $("logForm").submit(function(event) {
+
+   $("#logForm").submit(function(event) {
         event.preventDefault();
       // método AJAX de jQuery
       $.ajax({
@@ -39,8 +54,8 @@ $( document ).ready(function() {
           dataType: 'json',
           data: $("#logForm").serialize(),
           // control de acciones en el envio y respuesta del server
-          success: function(dataResp){
-              $("$message").html(dataResp);
+          success: function(resp){
+              $("$message").html(resp);
           },
           beforeSend: function(){
               $("$message").html('one moment please');
