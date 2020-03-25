@@ -2,6 +2,111 @@
     box-sizing: border-box;
 }
 /* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
+/* body {
+  background-image: url("./../img/crop3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%; */
+}
+header nav ul li{
+    list-style-type: none;
+
+}
+header nav ul{
+    display: flex;
+    font-size: 20px;
+}
+header nav ul li a{
+    border: 0px solid #000;
+    padding: 5px 15px;
+    margin-left: 5px;
+    color: #000000;
+    text-decoration: none;
+}
+header nav ul li a:hover{
+color:#87314e;
+}
+
+h3 {
+  margin: 10px 0px 20px 0px;
+  background: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+form{
+    width: 275px;
+    margin: auto;
+    padding: 10px;
+    background-color: #f5f5f500;
+}
+input {
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  outline: 0;
+
+}
+
+input[type=submit] {
+  width: 100%;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+  line-height: 40px;
+  background-color: #87314e;
+  border: 1px solid #87314e;
+  cursor: pointer;
+
+}
+
+input[type=button]:hover {
+  background-color: #6c2737;
+  border: 1px solid #6c2737;
+}
+input[type=button] {
+  width: 100%;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+  line-height: 40px;
+  background-color: #87314e;
+  border: 1px solid #87314e;
+  cursor: pointer;
+
+}
+
+input[type=submit]:hover {
+  background-color: #6c2737;
+  border: 1px solid #6c2737;
+}
+/* Estilos para nuestros campos inválidos */
+input:invalid, .invalid {
+  border: 1px solid #900 !important;
+  background-color: #fdd;
+}
+
+/* Estilos para nuestros mensajes de error */
+.error {
+  font-size: 75%;
+  color: #900;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+#logForm{
+  display :none;
+}
+
 
 /* Final TODO Challenge 5 */
 
