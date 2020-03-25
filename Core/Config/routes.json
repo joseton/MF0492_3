@@ -11,10 +11,6 @@
         "controller": "HomeController",
         "action": "conexionDB"
     },
-    "register": {
-        "controller": "UserController",
-        "action": "index"
-    },
     "auth": {
         "controller": "UserController",
         "action": "index"
