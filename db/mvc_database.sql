@@ -7,5 +7,6 @@ create table users(
     email varchar(45),
     pass varchar(45)
 );
-
+insert into users values
+(1,"hola", "111"); 
 select * from users;

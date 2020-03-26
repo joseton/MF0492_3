@@ -17,12 +17,12 @@ nav ul li a{
   text-decoration: none;
 }
 nav ul li a:hover{
-  color: #575555;
+  color: #002638;
 }
 
 /* Bienvenid@ */
 h3{
-  color: #FF8B24;
+  color: #ff7a7a;
   font-size: 40px;
   margin left: 50%;
   text-align: center;
@@ -51,7 +51,7 @@ input{
   display: none;
 }
 .label{
-  color: #FF8B24;
+  color: #FF7a7a;
   font-weight: bold;
   font-size: 24px;
 }
@@ -62,13 +62,13 @@ input{
   font-size: 18px;
 }
 .click_aqui{
-  color: #FF8B24;
+  color: #FF7a7a;
 }
 .click_aqui:hover{
   color: #424242;
 }
 .results{
-  color: #C41C1C;
+  color: #ff7a7a;
   padding-top: 24px;
 }
 /* Final TODO Challenge 5 */
