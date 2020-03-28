@@ -53,6 +53,7 @@ class UserModel extends Model
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':pass', $pass);
+
         // si se ha ejecutado la consulta del resitro bien dara 1 sino 2
         if ($stmt->execute()) {
             return 1;
@@ -63,6 +64,7 @@ class UserModel extends Model
 
     public function login($params)
     {
+
         // se ha ce una consulta  si los emails y los pass son correctos
         $sql = "select * from users where email = :email and pass = :pass";
         // preparamos la query y lo introducimos en $stmt
@@ -73,20 +75,21 @@ class UserModel extends Model
         // Vincula el parámetro al nombre de variable
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':pass', $pass);
+
         // ejecutamos la sentencia
         $stmt->execute();
         // alamcenamos el numero de registros obtenidos
-        if($stmt->rowCount() == 1){
-        // comprobamos si ha registro devolvemos true o false
+        $rows = $stmt->rowCount() ;
+
+        if($rows == 1) {
+            // comprobamos si ha registro devolvemos true o false
 
             return true;
         } else {
             return false;
         }
-
+    }
 }
-
-
 
 
 

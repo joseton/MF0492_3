@@ -41,7 +41,7 @@ class UserController extends Controller
             $email = htmlspecialchars($email);
             $email = stripslashes($email);
             $email = trim($email);
-             
+
             if (empty($email)) {
                 echo json_encode('El campo email esta vacio');
             } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -71,30 +71,30 @@ class UserController extends Controller
 
     public function loginAction($params)
     {
-        if (isset($POST)) {
+        if (isset($_POST)) {
             sleep(1);
 
             $email = $params['emailLogin'];
             $pass = $params['passLogin'];
-            $email = htmlspecialchars($emailLogin);
-            $email = stripslashes($emailLogin);
-            $email = trim($emailLogin);
+            $email = htmlspecialchars($email);
+            $email = stripslashes($email);
+            $email = trim($email);
 
-            if (empty($emailLogin)) {
+
+            if (empty($email)) {
                 echo json_encode('El campo email esta vacio');
-            } elseif (!filter_var($emailLogin, FILTER_VALIDATE_EMAIL)) {
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 echo json_encode('el  email no es correcto');
-
             } else {
                 $model =new UserModel;
                 $result = $model->login($params);
                 if ($result) {
-                  $_SESSION['emailLogin']= $email;
-                    echo json_encode('Login correcto');
+                    $_SESSION['emailLogin']= $email;
+                    echo json_encode('el login es correcto');
                 } else {
                     echo json_encode('Error en el Login');
-                    }
                 }
+            }
         }
     }
 }

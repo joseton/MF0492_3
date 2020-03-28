@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 
   $("#regForm").submit(function(event) {
-      event.preventDefault();
+    event.preventDefault();
     // metodo ajax
     $.ajax({
       // configuracion datos de envio
@@ -39,7 +39,7 @@ $(document).ready(function() {
   });
 
   $("#logForm").submit(function(event) {
-  event.preventDefault();
+    event.preventDefault();
     // metodo ajax
 
     $.ajax({
@@ -51,10 +51,12 @@ $(document).ready(function() {
       // contro de acciones de envio y respuesta
       success: function(dataResp) {
 
-        $(".dataResp2").html(dataResp);
+
+          $(".dataResp2").html(dataResp);
+ 
       },
       beforeSend: function() {
-        $(".dataResp2").html(' <i class="fas fa-spinner fa-pulse"></i>');
+        $(".dataResp2").html(' <i class="fas fa-spinner fa-pulse"></i> Registrando...');
       },
       error: function() {
         $(".dataResp2").html('Error en la comunicación con el servidor');
