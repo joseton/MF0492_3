@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block headlinks %}
+<link rel="stylesheet" href="public/css/index.css">
+<script src="public/js/index.js"></script>
+{% endblock %}
+
+{% block loginregister %}
+<div>
+    <a class="btn" onclick="document.getElementById('LOGIN').style.display='block'">Log in</a>
+    <a class="btn" onclick="document.getElementById('SIGNUP').style.display='block'">Sign up</a>
+</div>
+{% endblock %}
+
+{% block video %}
+<video src="public/img/video2.mp4" autoplay="true" loop="true" muted="true"></video>
+{% endblock %}
+
+{% block body %}
+
+<div class="tarjeta" id="tarjeta1">
+    <h1>OLA K ASE</h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+</div>
+<div class="tarjeta" id="tarjeta2">
+    <h1>OLA K ASE</h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+</div>
+
+
+<!-- LOG IN -->
+<div id="LOGIN" class="modal2">
+
+    <form class="modal-content animate" id="loginModal">
+
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('LOGIN').style.display='none'" class="close" title="Close PopUp">&times;</span>
+            <!-- <img src="1.png" alt="Avatar" class="avatar"> -->
+            <h1 style="text-align:center">Log In</h1>
+        </div>
+
+        <div class="container">
+            <input type="email" placeholder="Enter Email" name="email3" id="email3">
+            <input type="password" placeholder="Enter Password" name="pwd3" id="pwd3">
+            <button type="submit" name="Enviar">Login</button>
+            <input type="checkbox" name="remember" style="margin:26px 25px;">Remember me
+            <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+            <div class="resultado" style="color: red; text-align: center; margin-top: 10px;"></div>
+        </div>
+    </form>
+
+</div>
+
+
+<!-- SIGN UP -->
+<div id="SIGNUP" class="modal2">
+
+    <form class="modal-content animate" id="signupModal">
+
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('SIGNUP').style.display='none'" class="close" title="Close PopUp">&times;</span>
+            <!-- <img src="1.png" alt="Avatar" class="avatar"> -->
+            <h1 style="text-align:center">Sign Up</h1>
+        </div>
+
+        <div class="container">
+            <input type="email" placeholder="Enter Email" name="email" id="email">
+            <input type="password" placeholder="Enter Password" name="pass" id="pass">
+            <input type="password" placeholder="Enter Password" name="pass2" id="pass2">
+            <button type="submit">Registrar</button>
+            <input type="checkbox" style="margin:26px 30px;"> Remember me
+            <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+            <div class="resultado" style="color: red; text-align: center; margin-top: 10px;"></div>
+
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

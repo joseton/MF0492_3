@@ -1,0 +1,136 @@
+.homepage{
+    overflow: hidden;
+    height: 100vh;
+}
+video{
+    width: 100%;
+    object-fit: cover;
+}
+.menu_caja{
+  width: 25%;
+  padding: 10px;
+  top: 250px;
+  left: 100px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: absolute;
+}
+.menu_botones{
+    font-family: 'Luckiest Guy', cursive;
+    width: 100%;
+    /* background-color: #683ab7; */
+    background-color: #f2f2f2;
+    color: black;
+    border-color: #007bff;
+    padding: .375rem .75rem;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.menu_botones:hover{
+  transform: scale(1.1)
+}
+
+/* MODAL EMPIEZA */
+.container_modal{
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.caja{
+    margin: 1px;
+    width: 49%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #683ab7;
+    text-align: center;
+    border-radius: 5px;
+}
+.caja a{
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-size: 30px;
+  vertical-align: middle;
+  text-decoration: none;
+}
+.caja a:hover{
+  color: red;
+  cursor: pointer;
+}
+
+/* MODAL SELECT TEMA */
+.container_modal{
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.caja2{
+    margin: 1px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #683ab7;
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Luckiest Guy', cursive;
+    color: white;
+    font-size: 30px;
+    vertical-align: middle;
+}
+.caja2 a{
+  font-family: 'Luckiest Guy', cursive;
+  color: white;
+  font-size: 30px;
+  vertical-align: middle;
+  text-decoration: none;
+}
+.caja2 a:hover{
+    color: red;
+    cursor: pointer;
+}
+form{
+    /* margin: 1px; */
+    width: 100%;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* background-color: #683ab7; */
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Luckiest Guy', cursive;
+    color: white;
+    font-size: 20px;
+    vertical-align: middle;
+}
+form input{
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 20px;
+}
+.container_modal img{
+  position: sticky;
+  bottom: 0;
+  width: 55px;
+  height: 55px;
+  color: orange;
+  bottom: 5px;
+  right: 1px;
+  z-index: 5;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.container_modal img:hover{
+  opacity: 0.8;
+}
+#editar2{
+    width: 50px;
+    height: 50px;
+}

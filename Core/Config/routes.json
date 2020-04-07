@@ -1,0 +1,42 @@
+{
+    "": {
+        "controller": "HomeController",
+        "action": "index"
+    },
+    "home": {
+        "controller": "HomeController",
+        "action": "index"
+    },
+    "database": {
+        "controller": "HomeController",
+        "action": "conexionDB"
+    },
+    "home/signup": {
+        "controller": "UserController",
+        "action": "signup"
+    },
+    "home/login": {
+        "controller": "UserController",
+        "action": "login"
+    },
+    "cerrarSesion": {
+        "controller": "UserController",
+        "action": "cerrarSesion"
+    },
+    "main_menu/selectTema": {
+        "controller": "UserController",
+        "action": "selectTema"
+    },
+    "main_menu/createTopic": {
+        "controller": "UserController",
+        "action": "createTopic"
+    },
+    "main_menu/deleteTopic": {
+        "controller": "UserController",
+        "action": "deleteTopic"
+    },
+    "main_menu/updateTopic": {
+        "controller": "UserController",
+        "action": "updateTopic"
+    }
+}

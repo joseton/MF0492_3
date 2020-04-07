@@ -1,17 +1,25 @@
 {
-    "name":"proyecto/frontend",
-    "description":"Proyecto Frontend CIFO Violeta",
-    "license":"public",
+    "name": "YOUR VOCABULARY",
+    "description": "YOUR VOCABULARY PROJECT BY JOSE LUIS ESTEVEZ",
+    "license": "public",
     "authors": [
         {
-            "name":"CIFO Violeta",
-            "email":"info@cifovioleta.com"
-
+            "name": "YOUR VOCABULARY",
+            "email": "jlestevez.it@hotmail.com"
         }
     ],
 
     "require": {
-        "components/jquery": ">=3.4.1"
-    }
+        "php": ">=7.0",
+        "components/jquery": ">=3.3.1",
+        "twig/twig": ">=2.0",
+        "phpmailer/phpmailer": ">=6.1"
+    },
 
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "App/"
+        }
+    }
 }

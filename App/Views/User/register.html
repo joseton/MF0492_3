@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<h3>Soy la página de REGISTRO</h3>
+<form action="register" method="post" id="regForm">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="pass" placeholder="Contraseña" id="pass">
+    <input type="password" name="pass2" placeholder="Repite contraseña" id="pass2">
+    <input type="submit" name="registrar" value="Registrar">
+    <div class="results">{{ mensaje }}</div>
+</form>
+
+{% endblock %}

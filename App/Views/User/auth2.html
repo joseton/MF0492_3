@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<div class="titulo"><h3>Welcome to Challenge 5</h3></div>
+
+<form id="registerForm">
+    <h3>REGISTRO</h3>
+    <input type="email" name="email" placeholder="Email" id="email">
+    <input type="password" name="pass" placeholder="Contraseña" id="pass">
+    <input type="password" name="pass2" placeholder="Repite contraseña" id="pass2">
+    <input type="submit" name="registrar" value="Registrar" class="submit">
+    <p>¿Ya estás registrado? <a href="#" id="toLogin">Click AQUÍ</a></p>
+    <div class="resultado" style="text-align: center; color: red"></div>
+</form>
+
+<form id="loginForm">
+    <h3>LOG IN</h3>
+    <input type="email" name="email3" placeholder="Email" id="email3">
+    <input type="password" name="pass3" placeholder="Contraseña" id="pass3">
+    <input type="submit" name="Entrar" value="Entrar" class="submit">
+    <p>¿No estás registrado? <a href="#" id="toRegister">Click AQUÍ</a></p>
+    <div class="resultado" style="text-align: center; color: red"></div>
+</form>
+
+{% endblock %}

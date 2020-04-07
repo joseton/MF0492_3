@@ -1,0 +1,18 @@
+{
+    "front":{
+        "class": "FrontController",
+        "namespace": "Core\\"
+    },
+
+    "db":{
+        "host": "localhost",
+        "dbname": "yourvocabulary",
+        "user": "root",
+        "pass": "",
+        "port": "3306"
+    },
+
+    "show_error":{
+        "display": "false"
+    }
+}
