@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Registro{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="public/css/forms.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+<form id="regForm" novalidate>
+
+    <h3>REGISTRO</h3>
+    <input type="email" name="emailr" placeholder="Email">
+    <input type="password" name="passr" placeholder="Contraseña" id="passr">
+    <input type="password" name="passr2" placeholder="Repite contraseña" id="passr2">
+    <input type="submit" name="registrar" value="Registrar">
+    <div class="centermsg"><span>¿Ya estás registrado? </span><span class="toggle">Clica aquí</span></div>
+    <div class="resultsr"></div>
+</form>
+<form id="logForm" novalidate>
+    <h3>LOGIN</h3>
+    <input type="email" name="emaill" placeholder="Email">
+    <input type="password" name="passl" placeholder="Contraseña" id="passl">
+    <input type="submit" name="entrar" value="Entrar">
+    <div class="centermsg"><span>¿Aún no estás registrado? </span><span class="toggle">Clica aquí</span></div>
+    <div class="resultsl"></div>
+</form>
+{% endblock %}

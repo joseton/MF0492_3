@@ -3,12 +3,57 @@
 }
 /* TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5 */
 
-/* Final TODO Challenge 5 */
-
-/* form{
+form{
     width: 300px;
     margin: 20px;
+    margin: 50px auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+h3{
+    color: grey;
+    text-align: center;
 }
 input{
     width: 100%;
-} */
+    margin: 2px auto;
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+}
+input div{
+    text-align: center;
+    color: red;
+}
+input [type="submit"]{
+    margin: 0 30px !important;
+    color: white;
+    background-color:darkgrey;
+    outline-style: none;
+}
+.centermsg{
+    width: 75%;
+    margin:auto;
+    align-items: center;
+    font-size: 0.95em;
+}
+span{
+    text-align: center;
+    color: grey;
+    font-size: 0.75em;
+}
+#logForm{
+    display: none;
+}
+.resultsl{
+    text-align: center;
+    color: red;
+    font-size: 0.75em;
+    margin: 10px auto;
+}
+.resultsr{
+    text-align: center;
+    color: red;
+    font-size: 0.75em;
+    margin: 10px auto;
+}
+/* Final TODO Challenge 5 */
