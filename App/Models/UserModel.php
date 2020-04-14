@@ -76,7 +76,7 @@ class UserModel extends Model{
 
 }
 
-//     public function registrar($params){
+//     public function registaarar($params){
 //
 //         // $sql = "insert into users values (:id, :email, :pass)";
 //         //Consultamos si existe el email
