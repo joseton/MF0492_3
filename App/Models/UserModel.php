@@ -39,15 +39,16 @@ class UserModel extends Model{
            $stmt->bindParam(':pass', $pass);
 
            if($stmt->execute()){
-               return 1;
+               return 1; // REGISTRO OK
            }else{
-               return 2;
+               return 2; //ERRROR EN EL REGISTRO
            }
        }else {
-           return 0;
+           return 0; //EL EMAIL YA ESTÁ REGISTRADO
        }
 
    }
+
 
    public function login($params){
 
@@ -71,6 +72,7 @@ class UserModel extends Model{
        }
 
    }
+
 
 }
 

@@ -19,7 +19,7 @@ class UserController extends Controller{
 }
 
 
-public function registerAction($params){
+public function registroAction($params){
     sleep(1);
     $email = $params['email'];
     $pass = $params['pass'];
@@ -48,7 +48,7 @@ public function registerAction($params){
     }else if ($pass!=$pass2){
         $message = 'Las contraseñas no coinciden';
         echo json_encode($message);
-        
+
     }else{
         $model = new UserModel;
         $result = $model->registrar($params);
@@ -83,12 +83,16 @@ public function loginAction($params){
     if(empty($email)){
         $message = 'El email esta vacío';
         echo json_encode($message);
+
+
     }else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $message = 'El email no es correcto';
         echo json_encode($message);
+
     }else if(empty($pass)){
         $message = 'La contraseña esta vacía';
         echo json_encode($message);
+
     }else{
         $model = new UserModel;
         $result = $model->login($params);

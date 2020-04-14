@@ -7,7 +7,7 @@
 <h3></h3>
 
 
-<form id="regForm">
+<form id="registre" name="registre">
     <h1>REGISTRO</h1>
     <label for="email">Email</label>
     <input type="email"  name="email" >
@@ -16,23 +16,22 @@
     <label for="pass2">Repetir contraseña</label>
     <input type="password"  name="pass2">
     <input type="submit" name= "registrar" value="Registrar">
-    <p>¿Ya estás registrado? Haz clic <span class="aqui" >AQUÍ</span></p>
+    <p>¿Ya estás registrado? Haz clic <span class="registrespam" onclick="registre()">AQUÍ</span></p>
       <!-- <div id="dataResp_registro"></div> -->
     <div class="results"> </div>
 
 
 
         </form>
-</form>
 
-<form id="logForm">
+<form id="login" name="login">
     <h1>LOGIN</h1>
     <label for="email">Email</label>
     <input type="email"  name="email">
     <label for="pass">Contraseña</label>
     <input type="password"  name="pass">
     <input type="submit" name="entrar" value="Entrar">
-    <p>¿No tienes cuenta? Haz clic <span class="aqui">AQUÍ</span></p>
+    <p>¿No tienes cuenta? Haz clic <span class="loginspam" onclick="login()">AQUÍ</span></p>
     <!-- <div id="dataResp_login"></div> -->
     <div class="resultslog"> </div>
 </form>

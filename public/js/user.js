@@ -2,26 +2,26 @@ $( document ).ready(function() {
 
     // TODO Challenge 5: Añadir el código PHP que se indica en el ejercicio del Challenge 5
 
-    $(".aqui").click(function(){
-        $("#logForm").toggle();
-        $("#regForm").toggle();
-        $/".results").html("");
-        $("#logForm").ttrigger("reset");
-        $("#regForm").ttrigger("reset");
-
-    });
-    $(".aqui").click(function(){
-       $("#regForm").toggle();
-        $("#logForm").toggle();
+    $(".registrespam").click(function(){
+        $("#login").toggle();
+        $("#registre").toggle();
         $(".results").html("");
-        $("#regForm").ttrigger("reset");
-        $("#logForm").ttrigger("reset");
+        $("#login").trigger("reset");
+        $("#registre").trigger("reset");
+
+    });
+    $(".loginspam").click(function(){
+       $("#registre").toggle();
+        $("#login").toggle();
+        $(".results").html("");
+        $("#registre").trigger("reset");
+        $("#login").trigger("reset");
 
 
     });
 
 
-    $("#regForm").submit(function(event) {
+    $("#registre").submit(function(event) {
         event.preventDefault();
        // método AJAX de jQuery
        $.ajax({
@@ -29,22 +29,22 @@ $( document ).ready(function() {
            type: 'POST',
            url: 'auth/register',
            dataType: 'json',
-           data: $("#regForm").serialize(),
+           data: $("#registre").serialize(),
            // control de acciones en el envio y respuesta del server
            success: function(res){
-               $("dataResp_registro").html(res);
+               $(".results").html(res);
            },
            beforeSend: function(){
-               $("dataResp_registro").html('one moment please');
+               $(".results").html('one moment please comprobando');
            },
            error: function(){
-               $("dataResp_registro").html('Error en la comunicación con el servidor');
+               $(".results").html('Error en la comunicación con el servidor');
            }
        });
 
    });
 
-   $("#logForm").submit(function(event) {
+   $("#login").submit(function(event) {
         event.preventDefault();
       // método AJAX de jQuery
       $.ajax({
@@ -52,16 +52,16 @@ $( document ).ready(function() {
           type: 'POST',
           url: 'auth/login',
           dataType: 'json',
-          data: $("#logForm").serialize(),
+          data: $("#login").serialize(),
           // control de acciones en el envio y respuesta del server
           success: function(resp){
-              $("$message").html(resp);
+              $(".resultslog").html(resp);
           },
           beforeSend: function(){
-              $("$message").html('one moment please');
+              $(".resultslog").html('one moment please');
           },
           error: function(){
-              $("#dataResp").html('Error en la comunicación con el servidor');
+              $(".resultslog").html('Error en la comunicación con el servidor');
           }
       });
 
