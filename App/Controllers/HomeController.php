@@ -10,5 +10,4 @@ class HomeController extends Controller{
     public function indexAction(){
         View::renderTwig('Home/home.html');
     }
-
 }
